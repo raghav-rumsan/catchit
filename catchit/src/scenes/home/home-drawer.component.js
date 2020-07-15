@@ -1,23 +1,24 @@
-import React from 'react';
-import {ImageBackground, StyleSheet} from 'react-native';
-import {Drawer, DrawerItem} from '@ui-kitten/components';
+import React from "react";
+import { ImageBackground, StyleSheet } from "react-native";
+import { Drawer, DrawerItem } from "@ui-kitten/components";
 
 const DrawerHeader = () => (
   <ImageBackground
     style={styles.header}
-    source={require('../../assets/image-background.jpeg')}
+    source={require("../../assets/image-background.jpeg")}
   />
 );
 
-export const HomeDrawer = props => {
-  const onMenuItemSelect = index => {
+export const HomeDrawer = (props) => {
+  console.log("props", props);
+  const onMenuItemSelect = (index) => {
     const selectedTabRoute = props.state.routeNames[index.row];
     props.navigation.navigate(selectedTabRoute);
     props.navigation.closeDrawer();
   };
 
-  const createNavigationItemForRoute = route => {
-    const {options} = props.descriptors[route.key];
+  const createNavigationItemForRoute = (route) => {
+    const { options } = props.descriptors[route.key];
     return {
       routeName: route.name,
       // @ts-ignore: all Drawer Screens strictly have string title
@@ -31,8 +32,9 @@ export const HomeDrawer = props => {
     <Drawer
       selectedIndex={props.state.index}
       header={DrawerHeader}
-      onSelect={onMenuItemSelect}>
-      {props.state.routes.map(createNavigationItemForRoute).map(each => (
+      onSelect={onMenuItemSelect}
+    >
+      {props.state.routes.map(createNavigationItemForRoute).map((each) => (
         <DrawerItem key={each.routeName} title={each.title} />
       ))}
     </Drawer>

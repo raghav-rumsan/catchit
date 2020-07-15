@@ -1,5 +1,5 @@
-import produce from 'immer';
-import * as types from './types';
+import produce from "immer";
+import * as types from "./types";
 
 export const INITIAL_STATE = {
   loading: false,
@@ -19,8 +19,8 @@ export const INITIAL_STATE = {
       },
     },
     closing: {
-      summary: {header: [], data: []},
-      data: {header: [], data: []},
+      summary: { header: [], data: [] },
+      data: { header: [], data: [] },
     },
     data: {
       header: [],
@@ -36,11 +36,11 @@ export const INITIAL_STATE = {
   },
   data: {},
   primary: {},
-  accountInput: '',
+  accountInput: "",
 };
 
 const reducer = (state = INITIAL_STATE, action) =>
-  produce(state, draft => {
+  produce(state, (draft) => {
     switch (action.type) {
       case types.SET_ACCOUNT_INPUT:
         draft.accountInput = action.payload;
@@ -66,7 +66,7 @@ const reducer = (state = INITIAL_STATE, action) =>
             draft.primary.start_date = curr.start_date;
             draft.primary.end_date = curr.end_date;
           }
-          return {...acc, [curr.id]: curr};
+          return { ...acc, [curr.id]: curr };
         }, {});
         break;
       case types.LOAD_ACCOUNT_NAMES_SUCCESS:
@@ -74,8 +74,8 @@ const reducer = (state = INITIAL_STATE, action) =>
         draft.normalized_account_names = {
           ...state.normalized_account_names,
           ...(action.payload.reduce(
-            (acc, curr) => ({...acc, [curr.account_id]: curr}),
-            {},
+            (acc, curr) => ({ ...acc, [curr.account_id]: curr }),
+            {}
           ) || {}),
         };
         break;

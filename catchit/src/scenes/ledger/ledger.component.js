@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
-import {StyleSheet} from 'react-native';
-import {Divider, Layout} from '@ui-kitten/components';
-import {Toolbar} from '../../components/toolbar.component';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { StyleSheet } from "react-native";
+import { Divider, Layout } from "@ui-kitten/components";
+import { Toolbar } from "../../components/toolbar.component";
 import {
   SafeAreaLayout,
   SaveAreaInset,
-} from '../../components/safe-area-layout.component';
-import {MenuIcon} from '../../assets/icons';
-import Form from './components/Form';
-import * as mapDispatchToProps from './actions';
+} from "../../components/safe-area-layout.component";
+import { MenuIcon } from "../../assets/icons";
+import Form from "./components/Form";
+import * as mapDispatchToProps from "./actions";
 
-const LedgerScreen = props => {
-  const {loadFiscalYears} = props;
+const LedgerScreen = (props) => {
+  const { loadFiscalYears } = props;
   useEffect(() => {
     // initial load api calls
     try {

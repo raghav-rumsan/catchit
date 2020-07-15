@@ -1,34 +1,34 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import RNPickerSelect from 'react-native-picker-select';
-import {createStructuredSelector} from 'reselect';
-import {Text} from '@ui-kitten/components';
-import * as mapDispatchToProps from '../actions';
+import React from "react";
+import { connect } from "react-redux";
+import RNPickerSelect from "react-native-picker-select";
+import { createStructuredSelector } from "reselect";
+import { Text } from "@ui-kitten/components";
+import * as mapDispatchToProps from "../actions";
 import {
   selectFiscalYears,
   selectPrimaryValue,
   selectNormalizedFiscalYears,
-} from '../selectors';
+} from "../selectors";
 
-const FiscalYear = props => {
-  const options = props.fiscalYears.map(fiscalYear => ({
+const FiscalYear = (props) => {
+  const options = props.fiscalYears.map((fiscalYear) => ({
     label: fiscalYear.fiscal_year,
     value: `${fiscalYear.id}`,
   }));
 
-  const handleYearChange = data => {
+  const handleYearChange = (data) => {
     if (!data) {
       return;
     }
-    console.log(data, 'handleYearChange');
+    console.log(data, "handleYearChange");
 
-    props.setPrimaryValue({key: 'fiscal_year_id', value: data});
+    props.setPrimaryValue({ key: "fiscal_year_id", value: data });
     props.setPrimaryValue({
-      key: 'start_date',
+      key: "start_date",
       value: props.normalizedFiscalYears[data].start_date,
     });
     props.setPrimaryValue({
-      key: 'end_date',
+      key: "end_date",
       value: props.normalizedFiscalYears[data].end_date,
     });
   };
@@ -46,7 +46,7 @@ const FiscalYear = props => {
 
 const mapStateToProps = createStructuredSelector({
   fiscalYears: selectFiscalYears,
-  currentFiscalYear: selectPrimaryValue('fiscal_year_id'),
+  currentFiscalYear: selectPrimaryValue("fiscal_year_id"),
   normalizedFiscalYears: selectNormalizedFiscalYears,
 });
 

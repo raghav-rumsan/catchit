@@ -1,15 +1,21 @@
-import React from 'react';
-import {View} from 'react-native';
+import React from "react";
+import { View } from "react-native";
 import {
   OverflowMenu,
   TopNavigation,
   TopNavigationAction,
   useTheme,
-} from '@ui-kitten/components';
-import {BackIcon, MoreVerticalIcon} from '../assets/icons';
+} from "@ui-kitten/components";
+import { BackIcon, MoreVerticalIcon } from "../assets/icons";
 
-export const Toolbar = props => {
-  const {menu, backIcon, menuIcon, onBackPress, ...topNavigationProps} = props;
+export const Toolbar = (props) => {
+  const {
+    menu,
+    backIcon,
+    menuIcon,
+    onBackPress,
+    ...topNavigationProps
+  } = props;
   const [menuVisible, setMenuVisible] = React.useState(false);
   const theme = useTheme();
   const onMenuSelect = () => {
@@ -30,7 +36,8 @@ export const Toolbar = props => {
           icon={menuIcon || MoreVerticalIcon}
           onPress={onMenuActionPress}
         />
-      )}>
+      )}
+    >
       {menuData(onMenuSelect)}
     </OverflowMenu>
   );
@@ -40,7 +47,7 @@ export const Toolbar = props => {
   );
 
   return (
-    <View style={[{backgroundColor: theme['color-primary-default']}]}>
+    <View style={[{ backgroundColor: theme["color-primary-default"] }]}>
       <TopNavigation
         {...topNavigationProps}
         alignment="center"

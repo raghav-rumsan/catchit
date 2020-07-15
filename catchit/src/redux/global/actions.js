@@ -25,7 +25,6 @@ export const loginUser = (payload) => async (dispatch) => {
   try {
     const response = await loginPost(payload);
     dispatch(loginUserSuccess(response.data));
-    console.log("response", response.data);
     const token = `Bearer ${response.data.token}`;
     api.defaults.headers.common.Authorization = token;
     dispatch(setToken(token));

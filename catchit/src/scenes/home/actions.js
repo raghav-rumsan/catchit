@@ -1,4 +1,4 @@
-import Toast from 'react-native-tiny-toast';
+import Toast from "react-native-tiny-toast";
 import {
   homeCashViewGet,
   homeRefreshCashViewPost,
@@ -6,23 +6,23 @@ import {
   homeRefreshBankCashViewPost,
   homeSalesViewGet,
   homeRefreshSalesViewPost,
-} from '../../api';
-import * as types from './types';
+} from "../../api";
+import * as types from "./types";
 
-export const loadCashRequest = payload => ({
+export const loadCashRequest = (payload) => ({
   type: types.LOAD_CASH_REQUEST,
   payload,
 });
-export const loadCashSuccess = payload => ({
+export const loadCashSuccess = (payload) => ({
   type: types.LOAD_CASH_SUCCESS,
   payload,
 });
-export const loadCashFailure = payload => ({
+export const loadCashFailure = (payload) => ({
   type: types.LOAD_CASH_FAILURE,
   payload,
 });
 
-export const loadHomeCash = () => async dispatch => {
+export const loadHomeCash = () => async (dispatch) => {
   dispatch(loadCashRequest());
   try {
     const response = await homeCashViewGet();
@@ -38,25 +38,25 @@ export const loadHomeCash = () => async dispatch => {
   }
 };
 
-export const refreshCashRequest = payload => ({
+export const refreshCashRequest = (payload) => ({
   type: types.REFRESH_CASH_REQUEST,
   payload,
 });
-export const refreshCashSuccess = payload => ({
+export const refreshCashSuccess = (payload) => ({
   type: types.REFRESH_CASH_SUCCESS,
   payload,
 });
-export const refreshCashFailure = payload => ({
+export const refreshCashFailure = (payload) => ({
   type: types.REFRESH_CASH_FAILURE,
   payload,
 });
 
-export const refreshHomeCash = () => async dispatch => {
+export const refreshHomeCash = () => async (dispatch) => {
   dispatch(refreshCashRequest());
   try {
     const response = await homeRefreshCashViewPost();
     const toast = Toast.showSuccess(response.data.message);
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);
@@ -66,7 +66,7 @@ export const refreshHomeCash = () => async dispatch => {
     dispatch(refreshCashSuccess(response.data));
     return response.data;
   } catch (err) {
-    let errorMessage = '';
+    let errorMessage = "";
     if (err.response) {
       errorMessage = err.response.data.message;
       // errorMessage = JSON.stringify(err.response.data.message);
@@ -79,7 +79,7 @@ export const refreshHomeCash = () => async dispatch => {
       position: 0,
       // textColor: '#f00',
     });
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);
@@ -89,20 +89,20 @@ export const refreshHomeCash = () => async dispatch => {
   }
 };
 
-export const loadBankCashRequest = payload => ({
+export const loadBankCashRequest = (payload) => ({
   type: types.LOAD_BANK_CASH_REQUEST,
   payload,
 });
-export const loadBankCashSuccess = payload => ({
+export const loadBankCashSuccess = (payload) => ({
   type: types.LOAD_BANK_CASH_SUCCESS,
   payload,
 });
-export const loadBankCashFailure = payload => ({
+export const loadBankCashFailure = (payload) => ({
   type: types.LOAD_BANK_CASH_FAILURE,
   payload,
 });
 
-export const loadHomeBankCash = () => async dispatch => {
+export const loadHomeBankCash = () => async (dispatch) => {
   dispatch(loadBankCashRequest());
   try {
     const response = await homeBankCashViewGet();
@@ -118,25 +118,25 @@ export const loadHomeBankCash = () => async dispatch => {
   }
 };
 
-export const refreshBankCashRequest = payload => ({
+export const refreshBankCashRequest = (payload) => ({
   type: types.REFRESH_BANK_CASH_REQUEST,
   payload,
 });
-export const refreshBankCashSuccess = payload => ({
+export const refreshBankCashSuccess = (payload) => ({
   type: types.REFRESH_BANK_CASH_SUCCESS,
   payload,
 });
-export const refreshBankCashFailure = payload => ({
+export const refreshBankCashFailure = (payload) => ({
   type: types.REFRESH_BANK_CASH_FAILURE,
   payload,
 });
 
-export const refreshHomeBankCash = () => async dispatch => {
+export const refreshHomeBankCash = () => async (dispatch) => {
   dispatch(refreshBankCashRequest());
   try {
     const response = await homeRefreshBankCashViewPost();
     const toast = Toast.showSuccess(response.data.message);
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);
@@ -146,7 +146,7 @@ export const refreshHomeBankCash = () => async dispatch => {
     dispatch(refreshBankCashSuccess(response.data));
     return response.data;
   } catch (err) {
-    let errorMessage = '';
+    let errorMessage = "";
     if (err.response) {
       errorMessage = err.response.data.message;
       // errorMessage = JSON.stringify(err.response.data.message);
@@ -159,7 +159,7 @@ export const refreshHomeBankCash = () => async dispatch => {
       position: 0,
       // textColor: '#f00',
     });
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);
@@ -169,20 +169,20 @@ export const refreshHomeBankCash = () => async dispatch => {
   }
 };
 
-export const loadSalesRequest = payload => ({
+export const loadSalesRequest = (payload) => ({
   type: types.LOAD_SALES_REQUEST,
   payload,
 });
-export const loadSalesSuccess = payload => ({
+export const loadSalesSuccess = (payload) => ({
   type: types.LOAD_SALES_SUCCESS,
   payload,
 });
-export const loadSalesFailure = payload => ({
+export const loadSalesFailure = (payload) => ({
   type: types.LOAD_SALES_FAILURE,
   payload,
 });
 
-export const loadHomeSales = () => async dispatch => {
+export const loadHomeSales = () => async (dispatch) => {
   dispatch(loadSalesRequest());
   try {
     const response = await homeSalesViewGet();
@@ -198,25 +198,25 @@ export const loadHomeSales = () => async dispatch => {
   }
 };
 
-export const refreshSalesRequest = payload => ({
+export const refreshSalesRequest = (payload) => ({
   type: types.REFRESH_SALES_REQUEST,
   payload,
 });
-export const refreshSalesSuccess = payload => ({
+export const refreshSalesSuccess = (payload) => ({
   type: types.REFRESH_SALES_SUCCESS,
   payload,
 });
-export const refreshSalesFailure = payload => ({
+export const refreshSalesFailure = (payload) => ({
   type: types.REFRESH_SALES_FAILURE,
   payload,
 });
 
-export const refreshHomeSales = () => async dispatch => {
+export const refreshHomeSales = () => async (dispatch) => {
   dispatch(refreshSalesRequest());
   try {
     const response = await homeRefreshSalesViewPost();
     const toast = Toast.showSuccess(response.data.message);
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);
@@ -226,7 +226,7 @@ export const refreshHomeSales = () => async dispatch => {
     dispatch(refreshSalesSuccess(response.data));
     return response.data;
   } catch (err) {
-    let errorMessage = '';
+    let errorMessage = "";
     if (err.response) {
       errorMessage = err.response.data.message;
       // errorMessage = JSON.stringify(err.response.data.message);
@@ -239,7 +239,7 @@ export const refreshHomeSales = () => async dispatch => {
       position: 0,
       // textColor: '#f00',
     });
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve();
         Toast.hide(toast);

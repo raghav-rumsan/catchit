@@ -1,1 +1,1 @@
-export {default as LedgerScreen} from './ledger.component';
+export { default as LedgerScreen } from "./ledger.component";

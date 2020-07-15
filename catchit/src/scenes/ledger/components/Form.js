@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
-import {Button, Text, Layout} from '@ui-kitten/components';
-import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-import {Table, TableWrapper, Row, Rows} from 'react-native-table-component';
+import React, { useState } from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import { Button, Text, Layout } from "@ui-kitten/components";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { Table, TableWrapper, Row, Rows } from "react-native-table-component";
 
-import FiscalYear from './FiscalYear';
-import StartDate from './StartDate';
-import EndDate from './EndDate';
-import AccountName from './AccountName';
-import LedgerCollapsibleTable from './LedgerCollapsibleTable';
-import {selectTableData, selectLoading} from '../selectors';
-import * as mapDispatchToProps from '../actions';
+import FiscalYear from "./FiscalYear";
+import StartDate from "./StartDate";
+import EndDate from "./EndDate";
+import AccountName from "./AccountName";
+import LedgerCollapsibleTable from "./LedgerCollapsibleTable";
+import { selectTableData, selectLoading } from "../selectors";
+import * as mapDispatchToProps from "../actions";
 
 const styles = StyleSheet.create({
   submitButton: {
@@ -19,46 +19,46 @@ const styles = StyleSheet.create({
   },
   text: {
     margin: 4,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
-  head: {height: 40, backgroundColor: '#f1f8ff'},
-  wrapper: {flexDirection: 'row'},
-  title: {flex: 1, backgroundColor: '#f6f8fa'},
-  row: {height: 28},
-  dataWrapper: {marginTop: -1},
+  head: { height: 40, backgroundColor: "#f1f8ff" },
+  wrapper: { flexDirection: "row" },
+  title: { flex: 1, backgroundColor: "#f6f8fa" },
+  row: { height: 28 },
+  dataWrapper: { marginTop: -1 },
 });
 
-const Form = props => {
+const Form = (props) => {
   const state = {
-    tableHead: ['Head1', 'Head2', 'Head3'],
+    tableHead: ["Head1", "Head2", "Head3"],
     tableData: [
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['a', 'b', 'c'],
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-      ['1', '2', '3'],
+      ["1", "2", "3"],
+      ["a", "b", "c"],
+      ["1", "2", "3"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["a", "b", "c"],
+      ["1", "2", "3"],
+      ["a", "b", "c"],
+      ["1", "2", "3"],
     ],
   };
   const [searched, setSearched] = useState(false);
-  const [searchData, setSearchData] = useState('');
+  const [searchData, setSearchData] = useState("");
 
   const handleSubmit = async () => {
     try {
@@ -71,13 +71,13 @@ const Form = props => {
     } catch (err) {
       console.error(err);
       setSearched(false);
-      setSearchData('');
+      setSearchData("");
     }
   };
 
   const handleDownload = async () => {
     try {
-      console.log('downloading assets as excel');
+      console.log("downloading assets as excel");
       // await props.getAccountLedgerList();
       // setSearched(true);
     } catch (err) {
@@ -133,11 +133,11 @@ const Form = props => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  openingData: selectTableData('opening'),
-  closingData: selectTableData('closing'),
-  data: selectTableData('data'),
+  openingData: selectTableData("opening"),
+  closingData: selectTableData("closing"),
+  data: selectTableData("data"),
   loading: selectLoading,
-  pagination_properties: selectTableData('pagination_properties'),
+  pagination_properties: selectTableData("pagination_properties"),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

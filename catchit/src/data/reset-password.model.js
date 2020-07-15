@@ -1,13 +1,13 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 export class ResetPasswordData {
   constructor(email) {}
 
   static empty() {
-    return new ResetPasswordData('');
+    return new ResetPasswordData("");
   }
 }
 
 export const ResetPasswordSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email'),
+  email: Yup.string().email("Invalid email"),
 });

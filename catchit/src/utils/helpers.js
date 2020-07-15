@@ -3,8 +3,8 @@ export const flatten = (obj, prefix, current) => {
   current = current || {};
 
   // Remember null is also an object!
-  if (typeof obj === 'object' && obj !== null) {
-    Object.keys(obj).forEach(key => {
+  if (typeof obj === "object" && obj !== null) {
+    Object.keys(obj).forEach((key) => {
       flatten(obj[key], prefix.concat(key), current);
     });
   } else {
@@ -12,7 +12,7 @@ export const flatten = (obj, prefix, current) => {
     const strGrp =
       rest.reduce((acc, curr) => {
         return `${acc}[${curr}]`;
-      }, '') || '';
+      }, "") || "";
     current[`${first}${strGrp}`] = obj;
   }
 

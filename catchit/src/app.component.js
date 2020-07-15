@@ -62,7 +62,7 @@ const App = () => {
   const ref = useRef();
 
   const { getInitialState } = useLinking(ref, {
-    prefixes: ["https://accounting.com", "accounting://"],
+    prefixes: ["https://catchit.com", "catchit://"],
   });
   const [isReady, setIsReady] = React.useState(false);
   const [initialState, setInitialState] = React.useState();

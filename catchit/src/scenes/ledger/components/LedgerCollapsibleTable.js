@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import {Table, TableWrapper, Row, Rows} from 'react-native-table-component';
-import {Icon} from '@ui-kitten/components';
-import {connect} from 'react-redux';
-import * as mapDispatchToProps from '../actions';
+import React, { useState } from "react";
+import { StyleSheet } from "react-native";
+import { Table, TableWrapper, Row, Rows } from "react-native-table-component";
+import { Icon } from "@ui-kitten/components";
+import { connect } from "react-redux";
+import * as mapDispatchToProps from "../actions";
 // import CurrencyView from "../../../components/CurrencyView";
-const CurrencyView = ({value}) => <>{value}</>;
+const CurrencyView = ({ value }) => <>{value}</>;
 
 const styles = StyleSheet.create({});
 
-const LedgerCollapsibleTable = props => {
+const LedgerCollapsibleTable = (props) => {
   const [detailVisible, setDetailVisible] = useState(false);
-  const toggleDataVisible = () => setDetailVisible(prevValue => !prevValue);
+  const toggleDataVisible = () => setDetailVisible((prevValue) => !prevValue);
   const {
-    data: {summary, data},
+    data: { summary, data },
   } = props;
   return (
     <Table>
       {summary.data.length ? (
         <Row
           data={[
-            'S.N.',
-            ...summary.header.map(head => {
+            "S.N.",
+            ...summary.header.map((head) => {
               let value = summary.data[0][head.key];
-              return `${head.alias}: ${value || ''}`;
+              return `${head.alias}: ${value || ""}`;
             }),
           ]}
           flexArr={Array(summary.header.length + 1).fill(1)}
@@ -103,5 +103,5 @@ const mapStateToProps = null;
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(LedgerCollapsibleTable);

@@ -3,25 +3,25 @@ import {
   ledgerListHeadersGet,
   ledgerViewAccountNamesGet,
   ledgerViewGet,
-} from '../../api';
-import {flatten} from '../../utils/helpers';
-import * as types from './types';
-import {selectPrimary} from './selectors';
+} from "../../api";
+import { flatten } from "../../utils/helpers";
+import * as types from "./types";
+import { selectPrimary } from "./selectors";
 
-export const getFiscalYearsRequest = payload => ({
+export const getFiscalYearsRequest = (payload) => ({
   type: types.GET_FISCAL_YEARS_REQUEST,
   payload,
 });
-export const getFiscalYearsSuccess = payload => ({
+export const getFiscalYearsSuccess = (payload) => ({
   type: types.GET_FISCAL_YEARS_SUCCESS,
   payload,
 });
-export const getFiscalYearsFailure = payload => ({
+export const getFiscalYearsFailure = (payload) => ({
   type: types.GET_FISCAL_YEARS_FAILURE,
   payload,
 });
 
-export const loadFiscalYears = () => async dispatch => {
+export const loadFiscalYears = () => async (dispatch) => {
   dispatch(getFiscalYearsRequest());
   try {
     const response = await fiscalYearsGet();
@@ -37,30 +37,30 @@ export const loadFiscalYears = () => async dispatch => {
   }
 };
 
-export const setPrimaryValue = payload => ({
+export const setPrimaryValue = (payload) => ({
   type: types.SET_PRIMARY_VALUE,
   payload,
 });
 
-export const setAccountInput = payload => ({
+export const setAccountInput = (payload) => ({
   type: types.SET_ACCOUNT_INPUT,
   payload,
 });
 
-export const getLedgerListHeadersRequest = payload => ({
+export const getLedgerListHeadersRequest = (payload) => ({
   type: types.GET_LEDGER_LIST_HEADERS_REQUEST,
   payload,
 });
-export const getLedgerListHeadersSuccess = payload => ({
+export const getLedgerListHeadersSuccess = (payload) => ({
   type: types.GET_LEDGER_LIST_HEADERS_SUCCESS,
   payload,
 });
-export const getLedgerListHeadersFailure = payload => ({
+export const getLedgerListHeadersFailure = (payload) => ({
   type: types.GET_LEDGER_LIST_HEADERS_FAILURE,
   payload,
 });
 
-export const getLedgerHeaderList = () => async dispatch => {
+export const getLedgerHeaderList = () => async (dispatch) => {
   dispatch(getLedgerListHeadersRequest());
   try {
     const response = await ledgerListHeadersGet();
@@ -75,20 +75,20 @@ export const getLedgerHeaderList = () => async dispatch => {
   }
 };
 
-export const loadAccountNamesRequest = payload => ({
+export const loadAccountNamesRequest = (payload) => ({
   type: types.LOAD_ACCOUNT_NAMES_REQUEST,
   payload,
 });
-export const loadAccountNamesSuccess = payload => ({
+export const loadAccountNamesSuccess = (payload) => ({
   type: types.LOAD_ACCOUNT_NAMES_SUCCESS,
   payload,
 });
-export const loadAccountNamesFailure = payload => ({
+export const loadAccountNamesFailure = (payload) => ({
   type: types.LOAD_ACCOUNT_NAMES_FAILURE,
   payload,
 });
 
-export const getAccountNames = (accountName = '') => async dispatch => {
+export const getAccountNames = (accountName = "") => async (dispatch) => {
   dispatch(loadAccountNamesRequest(accountName));
   try {
     const response = await ledgerViewAccountNamesGet(accountName);
@@ -103,27 +103,27 @@ export const getAccountNames = (accountName = '') => async dispatch => {
   }
 };
 
-export const getLedgerListRequest = payload => ({
+export const getLedgerListRequest = (payload) => ({
   type: types.GET_LEDGER_LIST_REQUEST,
   payload,
 });
-export const getLedgerListSuccess = payload => ({
+export const getLedgerListSuccess = (payload) => ({
   type: types.GET_LEDGER_LIST_SUCCESS,
   payload,
 });
-export const getLedgerListFailure = payload => ({
+export const getLedgerListFailure = (payload) => ({
   type: types.GET_LEDGER_LIST_FAILURE,
   payload,
 });
 
 export const getAccountLedgerList = (pagination = {}) => async (
   dispatch,
-  getState,
+  getState
 ) => {
   dispatch(getLedgerListRequest());
   try {
     const params = selectPrimary(getState());
-    const flatQuery = flatten({primary: params, pagination});
+    const flatQuery = flatten({ primary: params, pagination });
     const response = await ledgerViewGet(flatQuery);
     dispatch(getLedgerListSuccess(response.data));
     return response.data.title;

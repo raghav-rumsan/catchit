@@ -1,7 +1,7 @@
-import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {AppRoute} from './app-routes';
-import {ProfileScreen, ChangePasswordScreen} from '../scenes/profile';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { AppRoute } from "./app-routes";
+import { ProfileScreen, ChangePasswordScreen } from "../scenes/profile";
 
 const Stack = createStackNavigator();
 
