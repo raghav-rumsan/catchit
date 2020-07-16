@@ -47,7 +47,7 @@ export const Toolbar = (props) => {
   );
 
   return (
-    <View style={[{ backgroundColor: theme["color-primary-default"] }]}>
+    <View style={[{ backgroundColor: theme["color-primary-white"] }]}>
       <TopNavigation
         {...topNavigationProps}
         alignment="center"

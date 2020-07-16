@@ -2,15 +2,22 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Divider, Layout, MenuItem, Text } from "@ui-kitten/components";
+import {
+  Divider,
+  Layout,
+  MenuItem,
+  Text,
+  useTheme,
+} from "@ui-kitten/components";
 import { Toolbar } from "./toolbar.component";
 import { MenuIcon, InfoIcon, LogoutIcon } from "../assets/icons";
 import { AppRoute } from "../navigation/app-routes";
 import { SafeAreaLayout, SaveAreaInset } from "./safe-area-layout.component";
 import { logoutUser } from "../redux/global/actions";
-import { selectClient } from "../redux/global/selectors";
 
 const MainLayout = (props) => {
+  const theme = useTheme();
+
   const menu = (callback = () => null) => (
     <>
       <MenuItem
@@ -43,9 +50,13 @@ const MainLayout = (props) => {
   // };
   return (
     <SafeAreaLayout style={styles.safeArea} insets={SaveAreaInset.TOP}>
-      {/* <Toolbar
+      <Toolbar
         title={
-          <Text category="h6" status="control">
+          <Text
+            category="h6"
+            status="control"
+            style={{ color: theme["color-primary-white"] }}
+          >
             Home
           </Text>
         }
@@ -53,7 +64,7 @@ const MainLayout = (props) => {
         backIcon={MenuIcon}
         onBackPress={props.navigation.toggleDrawer}
         menu={menu}
-      /> */}
+      />
       <Divider />
       <Layout style={styles.container}>{props.children}</Layout>
     </SafeAreaLayout>
@@ -64,9 +75,7 @@ const mapDispatchToProps = {
   logoutUser,
 };
 
-const mapStateToProps = createStructuredSelector({
-  client: selectClient,
-});
+const mapStateToProps = createStructuredSelector({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
 
@@ -76,7 +85,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    padding: 5,
+    // justifyContent: "center",
+    // alignItems: "center",
   },
 });

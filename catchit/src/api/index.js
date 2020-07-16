@@ -25,5 +25,4 @@ export const changePasswordPost = (data) =>
   api.post("api/v1/app/change-password", data);
 
 // ///////// User related API ////////////////
-export const clientDetailGet = () => api.get(`api/v1/client-info`);
-export const userDetailGet = () => api.get(`api/v1/me`);
+export const userDetailGet = () => api.get(`api/current_user`);

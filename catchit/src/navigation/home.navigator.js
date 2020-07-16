@@ -1,8 +1,10 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AppRoute } from "./app-routes";
-import { HomeDrawer, HomeScreen } from "../scenes/home";
+import { HomeDrawer } from "../scenes/home";
 import { HomeIcon } from "../assets/icons";
+import { Text } from "react-native";
+import HomeTabsNavigator from "./home-tabs.navigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -18,10 +20,11 @@ const Drawer = createDrawerNavigator();
 
 export const HomeNavigator = () => (
   // @ts-ignore: `drawerContent` also contains a DrawerNavigationProp
-  <Drawer.Navigator drawerContent={HomeDrawer}>
+  <Drawer.Navigator>
+    {/* <Drawer.Navigator drawerContent={HomeDrawer}> */}
     <Drawer.Screen
       name={AppRoute.HOME}
-      component={HomeScreen}
+      component={HomeTabsNavigator}
       options={{ title: "Home", drawerIcon: HomeIcon }}
     />
   </Drawer.Navigator>

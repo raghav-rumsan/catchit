@@ -21,8 +21,7 @@ const SignInScreen = (props) => {
       setDisabled(true);
       await props.loginUser(values);
       setDisabled(false);
-      console.log("props", props);
-      // props.navigation.navigate(AppRoute.HOME);
+      props.navigation.navigate(AppRoute.HOME);
     } catch (err) {
       setDisabled(false);
       if (

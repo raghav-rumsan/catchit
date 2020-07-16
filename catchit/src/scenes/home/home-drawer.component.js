@@ -1,12 +1,11 @@
 import React from "react";
-import { ImageBackground, StyleSheet } from "react-native";
-import { Drawer, DrawerItem } from "@ui-kitten/components";
+import { ImageBackground, StyleSheet, View } from "react-native";
+import { Drawer, DrawerItem, Text } from "@ui-kitten/components";
 
 const DrawerHeader = () => (
-  <ImageBackground
-    style={styles.header}
-    source={require("../../assets/image-background.jpeg")}
-  />
+  <View>
+    <Text appearance="h1">Catch it</Text>
+  </View>
 );
 
 export const HomeDrawer = (props) => {

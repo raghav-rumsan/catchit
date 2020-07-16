@@ -10,7 +10,9 @@ module.exports = (app) => {
     const { email, password } = req.body;
     const user = await Users.findOne({ email });
     if (!user) {
-      res.status(400).send({ message: "Cannot find the user" });
+      res
+        .status(400)
+        .send({ message: "Cannot find the user. Please register." });
     }
     try {
       if (await bcrypt.compare(password, user.password)) {
@@ -20,7 +22,7 @@ module.exports = (app) => {
         };
 
         const accessToken = jwt.sign(userData, keys.accessTokenKey, {
-          expiresIn: "30days",
+          expiresIn: "1day",
         });
 
         // const refreshToken = jwt.sign(userData, keys.refreshTokenKey);

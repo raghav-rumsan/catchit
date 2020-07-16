@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import ReduxThunk from "redux-thunk";
-import { persistStore, persistReducer } from "redux-persist";
-import { createTransform } from "redux-persist";
+import { persistStore, persistReducer, createTransform } from "redux-persist";
 import AsyncStorage from "@react-native-community/async-storage";
 import rootReducer from "./";
 import { api } from "../api";
@@ -30,7 +29,7 @@ const persistConfig = {
   key: "root",
   storage: AsyncStorage,
   transforms: [SetTransform],
-  blacklist: [""],
+  blacklist: ["profile"],
 };
 
 const configureStore = () => {

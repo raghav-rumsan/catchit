@@ -1,16 +1,8 @@
 export const AppRoute = {
   AUTH: "auth",
-  ENTER_CODE: "enter-code",
   SIGN_IN: "sign-in",
   RESET_PASSWORD: "reset-password",
   HOME: "home",
-  LEDGER: "ledger",
-  MY_ACCOUNTS: "my-accounts",
   PROFILE: "profile",
-  CHANGE_PASSWORD: "change-password",
-  ABOUT: "about",
-  SALES: "sales",
-  SALES_ITEM: "sales-item",
-  SALES_MONTH: "sales-month",
-  SALES_YEAR: "sales-year",
+  DETAILS: "details",
 };

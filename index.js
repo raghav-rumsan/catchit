@@ -11,7 +11,6 @@ const keys = require("./config/keys");
 require("./models/Users");
 
 // require("./services/passport");
-require("./services/pusher");
 //import the services after model
 
 mongoose.connect(keys.mongoURI, {
@@ -39,6 +38,7 @@ app.use(bodyParser.json());
 
 require("./routes/userRoutes/register")(app);
 require("./routes/userRoutes/login")(app);
+require("./routes/userRoutes/currentUser")(app);
 
 const PORT = process.env.PORT || 5000;
 

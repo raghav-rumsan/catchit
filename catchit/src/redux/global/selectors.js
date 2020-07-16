@@ -7,10 +7,6 @@ export const selectToken = createSelector(
   [selectGlobal],
   (state) => state.token
 );
-export const selectBaseUrl = createSelector(
-  [selectGlobal],
-  (state) => state.baseUrl
-);
 
 export const selectIsLoggedIn = createSelector(
   [selectToken],
@@ -18,7 +14,3 @@ export const selectIsLoggedIn = createSelector(
 );
 
 export const selectUser = createSelector([selectGlobal], (state) => state.user);
-export const selectClient = createSelector(
-  [selectGlobal],
-  (state) => state.client
-);

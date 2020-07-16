@@ -8,6 +8,7 @@ import { AppRoute } from "./app-routes";
 import { selectToken, selectBaseUrl } from "../redux/global/selectors";
 import { api } from "../api";
 import { getUser } from "../redux/global/actions";
+import { Text } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -37,7 +38,6 @@ const AppNavigator = (props) => {
 
 const mapStateToProps = createStructuredSelector({
   token: selectToken,
-  baseUrl: selectBaseUrl,
 });
 
 const mapDispatchToProps = {
