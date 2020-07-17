@@ -9,6 +9,7 @@ import BasicUserInfo from "./components/BasicUserInfo";
 import InfoCalendar from "./components/InfoCalendar";
 import AttendanceInfo from "./components/AttendanceInfo";
 import ClockButton from "./components/ClockButton";
+import { ScrollView } from "react-native";
 
 const ProfileScreen = (props) => {
   const renderRefresh = (props) => (
@@ -18,11 +19,12 @@ const ProfileScreen = (props) => {
     <MainLayout navigation={props.navigation}>
       <DailyQuotes />
       <BasicUserInfo />
+      <ScrollView>
+        <InfoCalendar />
 
-      <InfoCalendar />
-
-      <ClockButton />
-      <AttendanceInfo />
+        <ClockButton />
+        <AttendanceInfo />
+      </ScrollView>
     </MainLayout>
   );
 };

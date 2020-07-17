@@ -23,6 +23,7 @@ const SignInScreen = (props) => {
       setDisabled(false);
       props.navigation.navigate(AppRoute.HOME);
     } catch (err) {
+      console.log("err", err);
       setDisabled(false);
       if (
         err.response &&

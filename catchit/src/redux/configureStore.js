@@ -9,7 +9,6 @@ const SetTransform = createTransform(
   undefined,
   // transform state being rehydrated
   (outboundState, key) => {
-    console.log(outboundState);
     // app initial api setup on awake/restore of store
     if (outboundState && outboundState.baseUrl) {
       api.defaults.baseURL = `${
@@ -29,7 +28,7 @@ const persistConfig = {
   key: "root",
   storage: AsyncStorage,
   transforms: [SetTransform],
-  blacklist: ["profile"],
+  blacklist: ["home-profile"],
 };
 
 const configureStore = () => {

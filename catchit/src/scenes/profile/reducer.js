@@ -2,14 +2,19 @@ import produce from "immer";
 import * as types from "./types";
 
 export const INITIAL_STATE = {
-  sales: {},
+  loading: false,
+  quotes: "",
 };
 
 const reducer = (state = INITIAL_STATE, action) =>
   produce(state, (draft) => {
     switch (action.type) {
-      case types.LOAD_SALES_SUCCESS:
-        draft.sales = action.payload;
+      case types.GET_DAILY_QUOTES_SUCCESS:
+        draft.quotes = action.payload.title;
+        break;
+      case types.GET_DAILY_QUOTES_FAILURE:
+        draft.loading = false;
+        draft.quotes = INITIAL_STATE.quotes;
         break;
     }
   });

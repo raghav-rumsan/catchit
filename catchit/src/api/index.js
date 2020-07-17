@@ -1,10 +1,7 @@
 import axios from "axios";
 import Qs from "query-string";
 
-// export const BASE_URL = 'https://vedanasoft-accounting-server.herokuapp.com/';
 export const BASE_URL = "http://192.168.0.106:5000";
-// export const BASE_URL = 'https://shielded-fortress-94239.herokuapp.com';
-// export const BASE_URL = 'http://localhost:8000';
 
 export const api = axios.create({
   baseURL: BASE_URL,
@@ -26,3 +23,7 @@ export const changePasswordPost = (data) =>
 
 // ///////// User related API ////////////////
 export const userDetailGet = () => api.get(`api/current_user`);
+
+// Profile Related API
+
+export const dailyQuotesGet = () => api.get(`api/v1/get-daily-quotes`);

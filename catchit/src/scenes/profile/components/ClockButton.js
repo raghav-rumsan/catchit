@@ -27,6 +27,7 @@ export default ClockButton;
 
 const styles = StyleSheet.create({
   clockButtonCard: {
-    padding: 10,
+    padding: 5,
+    margin: 5,
   },
 });

@@ -9,6 +9,7 @@ const fileUpload = require("express-fileupload");
 const keys = require("./config/keys");
 // use the model first
 require("./models/Users");
+require("./models/Quotes");
 
 // require("./services/passport");
 //import the services after model
@@ -39,6 +40,8 @@ app.use(bodyParser.json());
 require("./routes/userRoutes/register")(app);
 require("./routes/userRoutes/login")(app);
 require("./routes/userRoutes/currentUser")(app);
+require("./routes/dailyQuotes/createQuotes")(app);
+require("./routes/dailyQuotes/getQuotes")(app);
 
 const PORT = process.env.PORT || 5000;
 

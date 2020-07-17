@@ -11,7 +11,7 @@ module.exports = (app) => {
     const user = await Users.findOne({ email });
     if (!user) {
       res
-        .status(400)
+        .status(404)
         .send({ message: "Cannot find the user. Please register." });
     }
     try {

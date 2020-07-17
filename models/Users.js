@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { Types } = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -16,6 +17,10 @@ const userSchema = new Schema(
     rank: String,
     date_joined: Date,
     role: String,
+    bounties: {
+      type: Schema.Types.ObjectId,
+      ref: "bounties",
+    },
   },
   {
     timestamps: true,

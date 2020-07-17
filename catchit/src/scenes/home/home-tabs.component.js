@@ -2,7 +2,6 @@ import React from "react";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 
 export const HomeTabs = ({ navigation, state }) => {
-  console.log("navigation", navigation, "state", state);
   return (
     <BottomNavigation
       selectedIndex={state.index}

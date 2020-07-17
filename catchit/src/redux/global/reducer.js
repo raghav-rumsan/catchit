@@ -14,7 +14,7 @@ const reducer = (state = INITIAL_STATE, action) =>
         break;
 
       case types.GET_USER_SUCCESS:
-        draft.user = action.payload;
+        draft.user = action.payload.userData;
         break;
     }
     // case for token expiry
