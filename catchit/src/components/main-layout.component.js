@@ -15,7 +15,7 @@ import {
   InfoIcon,
   LogoutIcon,
   HomeIcon,
-  MoneyIcon,
+  BountyIcon,
 } from "../assets/icons";
 import { AppRoute } from "../navigation/app-routes";
 import { SafeAreaLayout, SaveAreaInset } from "./safe-area-layout.component";
@@ -36,11 +36,11 @@ const MainLayout = (props) => {
   const menu = (callback = () => null) => (
     <>
       <MenuItem
-        accessoryLeft={MoneyIcon}
+        accessoryLeft={BountyIcon}
         title="Bounties"
         onPress={() => {
           callback();
-          // props.navigation.navigate(AppRoute.ABOUT);
+          props.navigation.navigate(AppRoute.BOUNTIES);
         }}
       />
       {/* <MenuItem

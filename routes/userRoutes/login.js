@@ -19,6 +19,7 @@ module.exports = (app) => {
         const userData = {
           email: user.email,
           role: user.role,
+          _id: user._id,
         };
 
         const accessToken = jwt.sign(userData, keys.accessTokenKey, {

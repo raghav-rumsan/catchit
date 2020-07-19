@@ -1,14 +1,25 @@
 import React from "react";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectUser } from "../../redux/global/selectors";
+import { PersonIcon, RulesIcon, SuperAdminIcon } from "../../assets/icons";
 
-export const HomeTabs = ({ navigation, state }) => {
+const HomeTabs = ({ navigation, state }) => {
   return (
     <BottomNavigation
       selectedIndex={state.index}
       onSelect={(index) => navigation.navigate(state.routeNames[index])}
     >
-      <BottomNavigationTab title="Profile" />
-      <BottomNavigationTab title="Details" />
+      <BottomNavigationTab icon={PersonIcon} />
+      <BottomNavigationTab icon={RulesIcon} />
+      <BottomNavigationTab icon={SuperAdminIcon} />
     </BottomNavigation>
   );
 };
+
+const mapStateToProps = createStructuredSelector({
+  user: selectUser,
+});
+
+export default connect(mapStateToProps)(HomeTabs);

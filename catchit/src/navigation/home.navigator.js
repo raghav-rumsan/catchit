@@ -2,9 +2,9 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AppRoute } from "./app-routes";
 import { HomeDrawer } from "../scenes/home";
-import { HomeIcon } from "../assets/icons";
-import { Text } from "react-native";
+import { HomeIcon, BountyIcon } from "../assets/icons";
 import HomeTabsNavigator from "./home-tabs.navigator";
+import { Text } from "react-native-paper";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,6 +20,7 @@ const Drawer = createDrawerNavigator();
 
 export const HomeNavigator = () => (
   // @ts-ignore: `drawerContent` also contains a DrawerNavigationProp
+  // <Drawer.Navigator>
   <Drawer.Navigator>
     {/* <Drawer.Navigator drawerContent={HomeDrawer}> */}
     <Drawer.Screen
@@ -27,5 +28,10 @@ export const HomeNavigator = () => (
       component={HomeTabsNavigator}
       options={{ title: "Home", drawerIcon: HomeIcon }}
     />
+    {/* <Drawer.Screen
+      name={AppRoute.BOUNTIES}
+      component={() => <Text>Bounties Screen</Text>}
+      options={{ title: "Bounties", drawerIcon: BountyIcon }}
+    /> */}
   </Drawer.Navigator>
 );
