@@ -987,7 +987,7 @@
     xcode "^3.0.0"
     xml-js "^1.6.11"
 
-"@expo/vector-icons@^10.0.2":
+"@expo/vector-icons@^10.0.2", "@expo/vector-icons@^10.2.0":
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.2.0.tgz#3c70656683a6a873e18efc00bc61fc160a80dc55"
   integrity sha512-dYe0SW/xbzWRtWG7i1pc3QPMGMbdReVgP02XlwMkS4srAAjF0cZQVa3ZgZ6qzxI+OzKudpDXZRmENNth/b263g==
@@ -2629,7 +2629,7 @@ expo-file-system@~9.0.1:
   dependencies:
     uuid "^3.4.0"
 
-expo-font@~8.2.1:
+expo-font@^8.2.1, expo-font@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-8.2.1.tgz#82f9d7f3e96a0ea4376e573b126379aa754ea807"
   integrity sha512-hVcHAMgHm6TAMgJvdk9yWb2/KhHs4gLjPrZzW0prFBPKltGN1KK1EcL1NhjuIRs0r5k8Lve2zE8HbxTO9NRnvA==

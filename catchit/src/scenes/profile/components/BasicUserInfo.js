@@ -10,7 +10,9 @@ const BasicUserInfo = ({ user, ...props }) => {
     <View style={styles.basicUserInfo}>
       <Text category="h1">{user.full_name}</Text>
       <Text category="h6">{user.email}</Text>
-      <Button appearance="ghost">View full details</Button>
+      <Button appearance="ghost" onPress={() => console.log("fullDetails")}>
+        View full details
+      </Button>
     </View>
   );
 };

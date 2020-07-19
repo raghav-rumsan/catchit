@@ -15,7 +15,7 @@ const DailyQuotes = ({ getDailyQuotes, quotes, ...props }) => {
   return (
     <Card style={styles.quoteCard}>
       <Text category="h6" style={styles.quoteText}>
-        "{quotes}""
+        "{quotes}"
       </Text>
     </Card>
   );

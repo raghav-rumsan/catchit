@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.0.0-alpha.1",
+    "@expo/vector-icons": "^10.2.0",
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-native-community/push-notification-ios": "^1.0.7",
@@ -24,6 +25,7 @@
     "axios": "^0.19.2",
     "date-fns": "^2.11.1",
     "expo": "^38.0.8",
+    "expo-font": "^8.2.1",
     "expo-status-bar": "^1.0.2",
     "formik": "^2.1.4",
     "hoist-non-react-statics": "^3.3.2",

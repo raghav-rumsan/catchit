@@ -3,7 +3,8 @@ import * as types from "./types";
 
 export const INITIAL_STATE = {
   loading: false,
-  quotes: "",
+  quotes: "Life is just awesome.",
+  clocked: true,
 };
 
 const reducer = (state = INITIAL_STATE, action) =>

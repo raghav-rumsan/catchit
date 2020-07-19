@@ -9,3 +9,8 @@ export const selectDailyQuotes = createSelector(
   [selectRoot],
   (state) => state.quotes
 );
+
+export const selectClocked = createSelector(
+  [selectRoot],
+  (state) => state.clocked
+);

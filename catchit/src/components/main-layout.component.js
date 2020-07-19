@@ -10,7 +10,13 @@ import {
   useTheme,
 } from "@ui-kitten/components";
 import { Toolbar } from "./toolbar.component";
-import { MenuIcon, InfoIcon, LogoutIcon } from "../assets/icons";
+import {
+  MenuIcon,
+  InfoIcon,
+  LogoutIcon,
+  HomeIcon,
+  MoneyIcon,
+} from "../assets/icons";
 import { AppRoute } from "../navigation/app-routes";
 import { SafeAreaLayout, SaveAreaInset } from "./safe-area-layout.component";
 import { logoutUser } from "../redux/global/actions";
@@ -18,20 +24,37 @@ import { logoutUser } from "../redux/global/actions";
 const MainLayout = (props) => {
   const theme = useTheme();
 
+  const handleUserLogout = async () => {
+    try {
+      await props.logoutUser();
+      props.navigation.navigate(AppRoute.AUTH);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const menu = (callback = () => null) => (
     <>
       <MenuItem
+        accessoryLeft={MoneyIcon}
+        title="Bounties"
+        onPress={() => {
+          callback();
+          // props.navigation.navigate(AppRoute.ABOUT);
+        }}
+      />
+      {/* <MenuItem
         accessoryLeft={InfoIcon}
         title="About"
         onPress={() => {
           callback();
           // props.navigation.navigate(AppRoute.ABOUT);
         }}
-      />
+      /> */}
       <MenuItem
         accessoryLeft={LogoutIcon}
         title="Log Out"
-        onPress={() => console.log("navigate to about!!")}
+        onPress={handleUserLogout}
       />
     </>
   );
@@ -57,7 +80,7 @@ const MainLayout = (props) => {
             status="control"
             style={{ color: theme["color-primary-white"] }}
           >
-            Home
+            <HomeIcon /> Home
           </Text>
         }
         // title={props.title || props.client.name}
