@@ -8,14 +8,13 @@ import {
 } from "@ui-kitten/components";
 import { BackIcon, MoreVerticalIcon } from "../assets/icons";
 
-export const Toolbar = (props) => {
-  const {
-    menu,
-    backIcon,
-    menuIcon,
-    onBackPress,
-    ...topNavigationProps
-  } = props;
+export const Toolbar = ({
+  menu,
+  backIcon,
+  menuIcon,
+  onBackPress,
+  ...topNavigationProps
+}) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
   const theme = useTheme();
   const onMenuSelect = () => {

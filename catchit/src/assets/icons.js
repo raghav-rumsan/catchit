@@ -5,14 +5,19 @@ import {
   FontAwesome,
   Feather,
   FontAwesome5,
+  Ionicons,
 } from "@expo/vector-icons";
 // import { Icon } from "@ui-kitten/components";
 
-export const BackIcon = (style) => <Icon {...style} name="back" />;
+export const BackIcon = (style) => (
+  <Ionicons {...style} size={23} name="ios-arrow-back" />
+);
 
 export const LayoutIcon = (style) => <Icon {...style} name="layout-outline" />;
 
-export const PersonIcon = (style) => <Icon {...style} size={24} name="user" />;
+export const PersonIcon = (style) => {
+  return <Icon size={24} {...style} name="user" />;
+};
 
 export const MoreVerticalIcon = (style) => (
   <Entypo {...style} size={20} name="dots-three-vertical" />

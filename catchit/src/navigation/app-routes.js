@@ -5,6 +5,7 @@ export const AppRoute = {
   HOME: "home",
   PROFILE: "profile",
   DETAILS: "details",
+  RULES: "rules",
   BOUNTIES: "bounties",
   SUPER_ADMIN: "super-admin",
 };

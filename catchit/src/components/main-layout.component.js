@@ -10,13 +10,7 @@ import {
   useTheme,
 } from "@ui-kitten/components";
 import { Toolbar } from "./toolbar.component";
-import {
-  MenuIcon,
-  InfoIcon,
-  LogoutIcon,
-  HomeIcon,
-  BountyIcon,
-} from "../assets/icons";
+import { MenuIcon, LogoutIcon, HomeIcon, BountyIcon } from "../assets/icons";
 import { AppRoute } from "../navigation/app-routes";
 import { SafeAreaLayout, SaveAreaInset } from "./safe-area-layout.component";
 import { logoutUser } from "../redux/global/actions";
@@ -83,7 +77,6 @@ const MainLayout = (props) => {
             <HomeIcon /> Home
           </Text>
         }
-        // title={props.title || props.client.name}
         backIcon={MenuIcon}
         onBackPress={props.navigation.toggleDrawer}
         menu={menu}

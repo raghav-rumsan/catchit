@@ -6,8 +6,8 @@ const SuperAdminTabs = ({ navigation, state }) => (
     selectedIndex={state.index}
     onSelect={(index) => navigation.navigate(state.routeNames[index])}
   >
-    <Tab title="USERS" />
-    <Tab title="ORDERS" />
+    <Tab title="View" />
+    <Tab title="Create" />
   </TabBar>
 );
 

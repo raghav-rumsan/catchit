@@ -1,19 +1,19 @@
 import React from "react";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Layout, Text } from "@ui-kitten/components";
-import SuperAdminTabs from "../scenes/superadmin";
-import { createBottomTabNavigator } from "@ui-kitten/components";
+import { SuperAdminTabs } from "../scenes/superadmin";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+const { Navigator, Screen } = createMaterialTopTabNavigator();
 
 const UsersScreen = () => (
   <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text category="h1">USERS</Text>
+    <Text category="h1">View</Text>
   </Layout>
 );
 
 const OrdersScreen = () => (
   <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text category="h1">ORDERS</Text>
+    <Text category="h1">Create</Text>
   </Layout>
 );
 
