@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectUser } from "../redux/global/selectors";
 import { HomeIcon } from "../assets/icons";
-import SuperAdminTabsNavigator from "./super-admin-tabs.navigator";
 import { Rules } from "../scenes/rules";
+import { SuperAdminNavigator } from "./super-admin.navigator";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -23,7 +23,7 @@ const HomeTabsNavigator = ({ user }) => (
         tabBarVisible: user.role === "superadmin",
         tabBarIcon: HomeIcon,
       }}
-      component={SuperAdminTabsNavigator}
+      component={SuperAdminNavigator}
     />
   </Navigator>
 );

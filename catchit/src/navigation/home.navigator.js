@@ -2,9 +2,8 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AppRoute } from "./app-routes";
 import { HomeDrawer } from "../scenes/home";
-import { HomeIcon, BountyIcon } from "../assets/icons";
+import { HomeIcon } from "../assets/icons";
 import HomeTabsNavigator from "./home-tabs.navigator";
-import { Text } from "react-native-paper";
 
 const Drawer = createDrawerNavigator();
 

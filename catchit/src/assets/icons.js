@@ -15,6 +15,8 @@ export const BackIcon = (style) => (
 
 export const LayoutIcon = (style) => <Icon {...style} name="layout-outline" />;
 
+export const DeleteIcon = (state) => <Icon {...style} name="delete" />;
+
 export const PersonIcon = (style) => {
   return <Icon size={24} {...style} name="user" />;
 };

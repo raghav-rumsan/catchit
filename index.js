@@ -42,6 +42,7 @@ require("./routes/userRoutes/login")(app);
 require("./routes/userRoutes/currentUser")(app);
 require("./routes/dailyQuotes/createQuotes")(app);
 require("./routes/dailyQuotes/getQuotes")(app);
+require("./routes/employeeRoutes/employeeList")(app);
 
 const PORT = process.env.PORT || 5000;
 

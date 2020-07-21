@@ -8,4 +8,6 @@ export const AppRoute = {
   RULES: "rules",
   BOUNTIES: "bounties",
   SUPER_ADMIN: "super-admin",
+  SUPER_ADMIN_VIEW: "super-admin-view",
+  SUPER_ADMIN_EMPLOYEE_LIST: "super-admin-employee-list",
 };

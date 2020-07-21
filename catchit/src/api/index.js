@@ -27,3 +27,7 @@ export const userDetailGet = () => api.get(`api/current_user`);
 // Profile Related API
 
 export const dailyQuotesGet = () => api.get(`api/v1/get-daily-quotes`);
+
+// Superadmin API
+export const employeesListGet = (query) =>
+  api.get(`api/v1/employees-list`, query);

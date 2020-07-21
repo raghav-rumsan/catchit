@@ -1,2 +1,2 @@
-export { default as SuperAdminScreen } from "./superadmin.component";
-export { default as SuperAdminTabs } from "./super-admin-tabs.component";
+export { default as SuperAdminView } from "./super-admin.component";
+export { EmployeeList } from "./employees";

@@ -16,7 +16,7 @@ const ProfileScreen = (props) => {
     <Button size="tiny" appearance="ghost" accessoryLeft={RefreshIcon} />
   );
   return (
-    <MainLayout navigation={props.navigation}>
+    <MainLayout title="Profile" navigation={props.navigation}>
       <DailyQuotes />
       <BasicUserInfo />
       <ScrollView>

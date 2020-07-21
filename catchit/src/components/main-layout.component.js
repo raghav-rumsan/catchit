@@ -74,7 +74,7 @@ const MainLayout = (props) => {
             status="control"
             style={{ color: theme["color-primary-white"] }}
           >
-            <HomeIcon /> Home
+            {props.title}
           </Text>
         }
         backIcon={MenuIcon}
