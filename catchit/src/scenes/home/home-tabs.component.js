@@ -3,7 +3,12 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectUser } from "../../redux/global/selectors";
-import { PersonIcon, RulesIcon, SuperAdminIcon } from "../../assets/icons";
+import {
+  PersonIcon,
+  RulesIcon,
+  SuperAdminIcon,
+  NotificationsIcon,
+} from "../../assets/icons";
 
 const HomeTabs = ({ navigation, state }) => {
   return (
@@ -13,6 +18,7 @@ const HomeTabs = ({ navigation, state }) => {
     >
       <BottomNavigationTab icon={PersonIcon} />
       <BottomNavigationTab icon={RulesIcon} />
+      <BottomNavigationTab icon={NotificationsIcon} />
       <BottomNavigationTab icon={SuperAdminIcon} />
     </BottomNavigation>
   );

@@ -7,61 +7,67 @@ import {
   FontAwesome5,
   Ionicons,
 } from "@expo/vector-icons";
-// import { Icon } from "@ui-kitten/components";
 
-export const BackIcon = (style) => (
-  <Ionicons {...style} size={23} name="ios-arrow-back" />
-);
+const iconStyle = (styles = { style: {} }, Component, name = "") => {
+  let newStyle;
+  const { style } = styles;
+  let fontColor = "";
+  if (style && style["tintColor"]) {
+    fontColor = style["tintColor"];
+    delete style["tintColor"];
+  }
+  newStyle = {
+    ...style,
+    color: fontColor,
+  };
 
-export const LayoutIcon = (style) => <Icon {...style} name="layout-outline" />;
-
-export const DeleteIcon = (state) => <Icon {...style} name="delete" />;
-
-export const PersonIcon = (style) => {
-  return <Icon size={24} {...style} name="user" />;
+  console.log("style", style, "name", name, "newStyle", newStyle);
+  console.log('style["tintColor"]', style["tintColor"]);
+  return <Component name={name} {...newStyle} />;
 };
 
-export const MoreVerticalIcon = (style) => (
-  <Entypo {...style} size={20} name="dots-three-vertical" />
-);
+export const BackIcon = (style) => iconStyle(style, Ionicons, "ios-arrow-back");
 
-export const LogoutIcon = (style) => <Icon {...style} name="logout" />;
+export const LayoutIcon = (style) => iconStyle(style, Icon, "layout-outline");
 
-export const InfoIcon = (style) => <Icon {...style} name="infocircle" />;
+// export const DeleteIcon = (state) => <Icon {...style} name="delete" />;
 
-export const AlertTriangleIcon = (style) => (
-  <Feather {...style} name="alert-triangle" />
-);
+export const PersonIcon = (style) => iconStyle(style, Icon, "user");
 
-export const EyeIcon = (style) => <Icon {...style} name="eyeo" />;
+export const MoreVerticalIcon = (style) =>
+  iconStyle(style, Entypo, "dots-three-vertical");
 
-export const EyeOffIcon = (style) => <Icon {...style} name="eye-off-outline" />;
+export const LogoutIcon = (style) => iconStyle(style, Icon, "logout");
 
-export const MenuIcon = (style) => (
-  <Icon {...style} size={20} name="menuunfold" />
-);
+export const InfoIcon = (style) => iconStyle(style, Icon, "infocircle");
 
-export const HomeIcon = (style) => <Icon {...style} size={20} name="home" />;
+export const AlertTriangleIcon = (style) =>
+  iconStyle(style, Feather, "alert-triangle");
 
-export const RulesIcon = (style) => (
-  <FontAwesome5 name="th-list" size={20} {...style} />
-);
-export const SuperAdminIcon = (style) => (
-  <FontAwesome5 name="user-astronaut" size={20} {...style} />
-);
+export const EyeIcon = (style) => iconStyle(style, Icon, "eyeo");
 
-export const DoneAllIcon = (style) => (
-  <Icon {...style} name="done-all-outline" />
-);
+export const EyeOffIcon = (style) => iconStyle(style, Feather, "eye-off`");
 
-export const GridIcon = (style) => <Icon {...style} name="grid-outline" />;
+export const MenuIcon = (style) => iconStyle(style, Icon, "menuunfold");
 
-export const SearchIcon = (style) => <Icon {...style} name="search-outline" />;
+export const HomeIcon = (style) => iconStyle(style, Icon, "home");
 
-export const RefreshIcon = (style) => <Icon {...style} name="refresh1" />;
+export const RulesIcon = (style) => iconStyle(style, FontAwesome5, "th-list");
 
-export const BountyIcon = (style) => <FontAwesome name="money" {...style} />;
+export const NotificationsIcon = (style) => iconStyle(style, Feather, "bell");
 
-export const ClockIcon = (style) => (
-  <Icon name="clockcircleo" size={24} {...style} />
-);
+export const SuperAdminIcon = (style) =>
+  iconStyle(style, FontAwesome5, "user-astronaut");
+
+export const DoneAllIcon = (style) =>
+  iconStyle(style, Icon, "done-all-outline");
+
+export const GridIcon = (style) => iconStyle(style, Icon, "grid-outline");
+
+export const SearchIcon = (style) => iconStyle(style, Icon, "search-outline");
+
+export const RefreshIcon = (style) => iconStyle(style, Icon, "refresh1");
+
+export const BountyIcon = (style) => iconStyle(style, FontAwesome, "money");
+
+export const ClockIcon = (style) => iconStyle(style, Feather, "clockcircleo");

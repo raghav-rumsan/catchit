@@ -6,6 +6,7 @@ export const AppRoute = {
   PROFILE: "profile",
   DETAILS: "details",
   RULES: "rules",
+  NOTIFICATIONS: "notifications",
   BOUNTIES: "bounties",
   SUPER_ADMIN: "super-admin",
   SUPER_ADMIN_VIEW: "super-admin-view",
