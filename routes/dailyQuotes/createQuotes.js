@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 const authenticateToken = require("../../middlewares/authenticateToken");
 const isSuperAdmin = require("../../middlewares/isSuperAdmin");
+const allowCors = require("../../middlewares/allowCors");
 
 const Quote = mongoose.model("quotes");
 
 module.exports = (app) => {
   app.post(
     `/api/v1/quotes-create`,
+    allowCors,
     authenticateToken,
     isSuperAdmin,
     async (req, res) => {

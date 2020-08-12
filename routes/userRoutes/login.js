@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const allowCors = require("../../middlewares/allowCors");
 
 const Users = mongoose.model("users");
 
 module.exports = (app) => {
-  app.post("/api/login", async (req, res) => {
+  app.post("/api/login", allowCors, async (req, res) => {
     const { email, password } = req.body;
+    console.log("req.body", req.body);
     const user = await Users.findOne({ email });
     if (!user) {
       res
@@ -28,9 +30,7 @@ module.exports = (app) => {
 
         // const refreshToken = jwt.sign(userData, keys.refreshTokenKey);
 
-        res
-          .status(200)
-          .send({ message: "Welcome", user: userData, token: accessToken });
+        res.status(200).send({ message: "Welcome", token: accessToken });
       }
       res.status(403).send({ message: "Not allowed" });
     } catch (error) {

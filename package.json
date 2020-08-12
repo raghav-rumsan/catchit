@@ -12,7 +12,8 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "mobile": "npm run start --prefix catchit",
-    "dev": "concurrently \"npm run server\" \"npm run mobile\""
+    "admin-web": "npm run start --prefix adminpanel-web",
+    "dev": "concurrently \"npm run server\" \"npm run mobile\" \"npm run admin-web\""
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
     "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
     "jsonwebtoken": "^8.5.1",

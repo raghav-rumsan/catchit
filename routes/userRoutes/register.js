@@ -2,12 +2,14 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const authenticateToken = require("../../middlewares/authenticateToken");
 const isSuperAdmin = require("../../middlewares/isSuperAdmin");
+const allowCors = require("../../middlewares/allowCors");
 
 const User = mongoose.model("users");
 
 module.exports = (app) => {
   app.post(
     "/api/register",
+    allowCors,
     authenticateToken,
     isSuperAdmin,
     async (req, res) => {

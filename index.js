@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
+const cors = require("cors");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -21,21 +22,12 @@ mongoose.connect(keys.mongoURI, {
 });
 
 const app = express();
+app.options("*", cors());
 
 app.use(fileUpload());
 // Parse the request from the client
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// app.use(
-//   cookieSession({
-//     maxAge: 30 * 24 * 60 * 60 * 1000,
-//     keys: [keys.cookieKey],
-//   })
-// );
-
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 require("./routes/userRoutes/register")(app);
 require("./routes/userRoutes/login")(app);
