@@ -15,7 +15,6 @@ const Navbar = ({ user }) => {
     </Menu>
   );
 
-  console.log("user", user);
   return (
     <div style={{ float: "right", margin: "0 .5rem" }}>
       {" "}

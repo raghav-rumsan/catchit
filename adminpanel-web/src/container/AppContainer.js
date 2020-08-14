@@ -10,12 +10,11 @@ import {
   GuestRoute,
   ProtectedRoute,
 } from "./components";
-// import { Login } from "./guest";
 import LayoutContainer from "../components/layout/LayoutContainer";
 import { selectToken } from "./selectors";
 import "antd/dist/antd.css";
 
-import { Dashboard, Quotes } from "./protected";
+import { Dashboard, Quotes, Employees } from "./protected";
 import { Login } from "./guest";
 import NotSuperAdmin from "./guest/not-superadmin/NotSuperAdmin";
 const AppContainer = ({ token, getUser }) => {
@@ -32,6 +31,7 @@ const AppContainer = ({ token, getUser }) => {
         <Router>
           <ProtectedRoute container={Dashboard} path="/" />
           <ProtectedRoute container={Quotes} path="quotes/*" />
+          <ProtectedRoute container={Employees} path="employees/*" />
           <PublicRoute container={NotSuperAdmin} path="unauthorized" />
           <GuestRoute container={Login} path="login" />
           <PublicRoute container={PageNotFound} path="*" />
