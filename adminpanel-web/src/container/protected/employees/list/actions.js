@@ -18,7 +18,7 @@ export const getEmployeesList = (query) => async (dispatch) => {
   dispatch(getEmployeesListRequest(query));
   try {
     const response = await employeesListGet(query);
-    dispatch(getEmployeesListSuccess(response.data));
+    dispatch(getEmployeesListSuccess(response.data.data));
     return response.data;
   } catch (err) {
     if (err.response) {

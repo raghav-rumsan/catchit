@@ -2,19 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectLoading, selectEmpList } from "../selectors";
-import { Table, Row, Col } from "antd";
+import { Table, Row, Col, Tag } from "antd";
 import { DeleteButton, LinkedButton } from "../../../../components";
 import moment from "moment";
 
 const EmployeeTable = ({ loading, empList }) => {
-  console.log("empList", empList, "loading", loading);
-
   const columns = [
     {
       title: "Sn.",
       dataIndex: "index",
       key: "index",
-      render: (text) => <p>{+text + 1}</p>,
+      render: (text) => <h3>{+text + 1}</h3>,
     },
     {
       title: "Full Name",
@@ -45,9 +43,15 @@ const EmployeeTable = ({ loading, empList }) => {
       render: (text) => <h3>{text}</h3>,
     },
     {
+      title: "Role",
+      dataIndex: "role",
+      key: "role",
+      render: (text) => <Tag>{text}</Tag>,
+    },
+    {
       title: "Action",
       render: ({ _id, full_name }) => (
-        <Row>
+        <Row key={_id}>
           <Col span={8}>
             <DeleteButton title={`details of '${full_name}'`}>
               Delete

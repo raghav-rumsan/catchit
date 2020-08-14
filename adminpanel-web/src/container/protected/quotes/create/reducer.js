@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) =>
   produce(state, (draft) => {
-    switch (action.types) {
+    switch (action.type) {
       case types.DAILY_QUOTES_CREATE_REQUEST:
         draft.loading = true;
         break;

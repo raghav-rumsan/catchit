@@ -51,9 +51,10 @@ module.exports = (app) => {
       try {
         await Employees.paginate(queryObj, options, async (err, result) => {
           const empList = result.employees.map(
-            ({ full_name, rank, _id, date_joined, email }) => ({
+            ({ full_name, rank, _id, date_joined, email, role }) => ({
               full_name,
               rank,
+              role,
               email,
               date_joined,
               _id,
