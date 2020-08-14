@@ -12,9 +12,11 @@ export const selectLoading = createSelector(
 
 export const selectData = createSelector([selectRoot], (state) => state.data);
 
-export const selectEmpList = createSelector(
-  [selectData],
-  (state) => state.empList
+export const selectEmpList = createSelector([selectData], (state) =>
+  state.empList.map((emp, index) => ({
+    index,
+    ...emp,
+  }))
 );
 export const selectPaginator = createSelector(
   [selectData],

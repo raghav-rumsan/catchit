@@ -7,8 +7,9 @@ import { selectLoading, reduxKey } from "./selectors";
 import reducer from "./reducer";
 import { useInjectReducer } from "../../../../utils/injectReducer";
 import EmployeeTable from "./components/EmployeeTable";
+import { LinkedButton } from "../../../components";
 
-const List = ({ getEmployeesList, ...props }) => {
+const List = ({ getEmployeesList, loading, ...props }) => {
   useInjectReducer({ key: reduxKey, reducer });
 
   useEffect(() => {
@@ -17,7 +18,11 @@ const List = ({ getEmployeesList, ...props }) => {
 
   return (
     <div>
-      <PageTitle>Employees</PageTitle>
+      <LinkedButton to="../create" type="primary" position="right">
+        {" "}
+        Register a New Employee
+      </LinkedButton>
+      <PageTitle>Employees List</PageTitle>
       <div>
         <EmployeeTable />
       </div>

@@ -76,50 +76,37 @@ const SideBar = ({ children }) => {
 
   return (
     <>
-      {window.innerWidth > 578 ? (
-        <Sider
-          className="sider-class"
-          // collapsedWidth={"20vh"}
-          collapsible
-          collapsed={collapsed}
-          onCollapse={onCollapse}
-        >
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <div
+      <Sider
+        className="sider-class"
+        collapsible
+        breakpoint="lg"
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+      >
+        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+          <div
+            style={{
+              margin: "13px 0 13px 0",
+              padding: "20px",
+              fontSize: "27px",
+              // fontWeight: "bold",
+              color: "white",
+            }}
+          >
+            <Link
               style={{
-                margin: "13px 0 13px 0",
-                padding: "20px",
                 fontSize: "27px",
-                // fontWeight: "bold",
                 color: "white",
               }}
+              to="/"
             >
-              <Link
-                style={{
-                  fontSize: "27px",
-                  color: "white",
-                }}
-                to="/"
-              >
-                Catch It
-              </Link>
-            </div>
+              Catch It
+            </Link>
+          </div>
 
-            {menuRender()}
-          </Menu>
-        </Sider>
-      ) : (
-        <Affix>
-          <Menu
-            style={{ width: "100%" }}
-            theme="dark"
-            defaultSelectedKeys={["1"]}
-            mode="horizontal"
-          >
-            {menuRender()}
-          </Menu>
-        </Affix>
-      )}
+          {menuRender()}
+        </Menu>
+      </Sider>
 
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>

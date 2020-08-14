@@ -4,7 +4,7 @@ import { Form, Input, Button, Checkbox, Card } from "antd";
 import openNotification from "../../components/Notification";
 import { useInjectReducer } from "../../../utils/injectReducer";
 import * as mapDispatchToProps from "./actions";
-import { reduxKey, selectLoading } from "./selectors";
+import { reduxKey, selectLoading, selectMessage } from "./selectors";
 import { createStructuredSelector } from "reselect";
 import reducer from "./reducer";
 // import TitleHeader from "../../components/TitleHeader";
@@ -24,15 +24,16 @@ const tailLayout = {
   },
 };
 
-const Login = ({ login, loading }) => {
+const Login = ({ login, loading, message }) => {
   useInjectReducer({ key: reduxKey, reducer });
+  console.log("message", message);
   const onFinish = async (values) => {
-    const loggedIn = await login(values);
-    openNotification("success", loggedIn.message);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    openNotification("error", "Error logging in", "Check the internet");
+    try {
+      const loggedIn = await login(values);
+      openNotification("success", loggedIn.message);
+    } catch (error) {
+      openNotification("error", message);
+    }
   };
 
   return (
@@ -51,7 +52,6 @@ const Login = ({ login, loading }) => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
       >
         <Form.Item
           label="Email"
@@ -96,6 +96,7 @@ const Login = ({ login, loading }) => {
 
 const mapStateToProps = createStructuredSelector({
   loading: selectLoading,
+  message: selectMessage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
