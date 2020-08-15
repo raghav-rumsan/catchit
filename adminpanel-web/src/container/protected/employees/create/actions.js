@@ -1,5 +1,6 @@
 import * as types from "./types";
 import { registerPost } from "../../../../api";
+import { selectData } from "./selectors";
 
 export const setDataValue = (payload) => ({
   type: types.SET_DATA_VALUE,
@@ -19,10 +20,11 @@ export const employeesCreateFailure = (payload) => ({
   payload,
 });
 
-export const createemployees = (payload) => async (dispatch) => {
+export const createEmployees = (payload) => async (dispatch, getState) => {
   dispatch(employeesCreateRequest(payload));
   try {
-    const response = await registerPost(payload);
+    const data = selectData(getState());
+    const response = await registerPost(data);
     dispatch(employeesCreateSuccess(response.data));
     return response.data;
   } catch (err) {

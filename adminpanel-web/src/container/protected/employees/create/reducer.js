@@ -4,12 +4,33 @@ import * as types from "./types";
 export const INITIAL_STATE = {
   loading: false,
   error: {},
+  roles: [
+    {
+      title: "superadmin",
+      _id: "12312",
+    },
+    {
+      title: "employee",
+      _id: "923h",
+    },
+  ],
+  ranks: [
+    {
+      title: "Engineer",
+      _id: "2312r",
+    },
+    {
+      title: "Designer",
+      _id: "sdasd1",
+    },
+  ],
   data: {
     full_name: "",
     role: "",
     rank: "",
     date_joined: "",
     email: "",
+    password: "",
   },
 };
 

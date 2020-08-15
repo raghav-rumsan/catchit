@@ -19,6 +19,8 @@ export const selectEmpList = createSelector([selectData], (state) =>
   }))
 );
 export const selectPaginator = createSelector(
-  [selectData],
+  [selectRoot],
   (state) => state.paginator
 );
+
+export const selectQuery = createSelector([selectRoot], (state) => state.query);

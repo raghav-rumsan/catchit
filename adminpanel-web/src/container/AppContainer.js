@@ -12,7 +12,7 @@ import {
 } from "./components";
 import LayoutContainer from "../components/layout/LayoutContainer";
 import { selectToken } from "./selectors";
-import "antd/dist/antd.css";
+import "antd/dist/antd.dark.css";
 
 import { Dashboard, Quotes, Employees } from "./protected";
 import { Login } from "./guest";

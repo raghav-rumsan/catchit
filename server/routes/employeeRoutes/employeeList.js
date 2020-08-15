@@ -13,14 +13,15 @@ module.exports = (app) => {
     isSuperAdmin,
     async (req, res) => {
       const {
-        page = 1,
-        limit = 15,
+        page,
+        limit,
         search = {
           searchField: [] || "",
           searchValue: [] || "",
         },
-        sort = { full_name: 1 },
+        sort = {},
       } = req.query;
+      console.log("req.query", req.query);
       const myCustomLabels = {
         totalDocs: "total",
         docs: "employees",

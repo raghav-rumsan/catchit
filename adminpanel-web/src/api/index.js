@@ -20,7 +20,7 @@ export const api = axios.create({
 export const loginPost = (data) => api.post("api/login", data);
 
 export const logoutGet = () => api.get("api/logout");
-export const registerPost = (data) => api.post("api/user/register", data);
+export const registerPost = (data) => api.post("api/register", data);
 
 export const forgotPasswordPost = (data) =>
   api.post("api/v1/app/forgot-password", data);
@@ -38,5 +38,6 @@ export const dailyQuotesCreate = (data) =>
   api.post(`api/v1/quotes-create`, data);
 
 // Superadmin API
-export const employeesListGet = (query) =>
-  api.get(`api/v1/employees-list`, query);
+export const employeesListGet = (query) => {
+  return api.get(`api/v1/employees-list?${query}`, query);
+};

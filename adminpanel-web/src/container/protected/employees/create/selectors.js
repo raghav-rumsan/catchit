@@ -11,3 +11,6 @@ export const selectLoading = createSelector(
 );
 
 export const selectData = createSelector([selectRoot], (state) => state.data);
+
+export const selectRanks = createSelector([selectRoot], (state) => state.ranks);
+export const selectRoles = createSelector([selectRoot], (state) => state.roles);

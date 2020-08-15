@@ -17,7 +17,7 @@ const DateJoined = ({ setDataValue, ...props }) => {
       name="date_joined"
       label="Date Joined"
     >
-      <DatePicker onChange={handleSelect} />;
+      <DatePicker onChange={handleSelect} />
     </Form.Item>
   );
 };

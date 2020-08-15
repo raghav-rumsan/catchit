@@ -14,6 +14,7 @@ module.exports = (app) => {
     isSuperAdmin,
     async (req, res) => {
       const { full_name, password, email, role, rank, date_joined } = req.body;
+      console.log("req.body", req.body);
       try {
         const hashedPassword = await bcrypt.hash(password, 10);
         const existingUser = await User.findOne({ email });
@@ -28,11 +29,14 @@ module.exports = (app) => {
           }).save();
           res
             .status(200)
-            .send({ message: "Lets say welcome to the new member", savedUser });
+            .send({
+              message: "User saved! Lets say welcome to the new member",
+            });
         }
         res.status(403).send({ message: "User already exists" });
       } catch (error) {
         res.status(500).send({ error });
+        console.log("error", error);
       }
     }
   );

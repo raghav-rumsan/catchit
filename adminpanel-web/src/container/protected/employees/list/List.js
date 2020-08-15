@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { PageTitle } from "../../../components";
 import * as mapDispatchToProps from "./actions";
 import { createStructuredSelector } from "reselect";
-import { selectLoading, reduxKey } from "./selectors";
+import { selectLoading, reduxKey, selectQuery } from "./selectors";
 import reducer from "./reducer";
 import { useInjectReducer } from "../../../../utils/injectReducer";
 import EmployeeTable from "./components/EmployeeTable";
 import { LinkedButton } from "../../../components";
 
-const List = ({ getEmployeesList, loading, ...props }) => {
+const List = ({ getEmployeesList, loading, query, ...props }) => {
   useInjectReducer({ key: reduxKey, reducer });
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const List = ({ getEmployeesList, loading, ...props }) => {
 
 const mapStateToProps = createStructuredSelector({
   loading: selectLoading,
+  query: selectQuery,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

@@ -12,16 +12,16 @@ import TextInput from "./components/TextInput";
 import DateJoined from "./components/DateJoined";
 import SelectInput from "./components/SelectInput";
 
-const Create = ({ createDailyQuotes }) => {
+const Create = ({ createEmployees }) => {
   useInjectReducer({ key: reduxKey, reducer });
 
   const [form] = Form.useForm();
 
-  const handleQuotesInput = async (values) => {
+  const handleEmpRegistration = async () => {
     try {
-      const addedQuote = await createDailyQuotes(values);
-      console.log("addedQuotes", addedQuote);
-      openNotification("success", addedQuote.message);
+      const addedEmployee = await createEmployees();
+      console.log("addedEmployees", addedEmployee);
+      openNotification("success", addedEmployee.message);
       form.resetFields();
     } catch (error) {
       console.log("error", error);
@@ -32,13 +32,13 @@ const Create = ({ createDailyQuotes }) => {
       span: 8,
     },
     wrapperCol: {
-      span: 24,
+      span: 12,
     },
   };
   const tailLayout = {
     wrapperCol: {
       offset: 8,
-      span: 16,
+      span: 12,
     },
   };
 
@@ -48,7 +48,7 @@ const Create = ({ createDailyQuotes }) => {
         List of the Employees
       </LinkedButton>
       <PageTitle>Employee Register</PageTitle>
-      <Form form={form} {...layout} onFinish={handleQuotesInput}>
+      <Form form={form} {...layout} onFinish={handleEmpRegistration}>
         <TextInput
           required
           name="full_name"
@@ -64,6 +64,13 @@ const Create = ({ createDailyQuotes }) => {
           placeholder="Enter the Email of the Employee"
           form={form}
         />
+        <TextInput
+          required
+          name="password"
+          label="Password"
+          placeholder="Enter the password for the Employee"
+          form={form}
+        />
         <SelectInput
           required
           name="rank"
@@ -76,7 +83,7 @@ const Create = ({ createDailyQuotes }) => {
           label="Role"
           placeholder="Select a Role"
         />
-        <Form.Item style={{ width: "50%", margin: "auto" }}>
+        <Form.Item {...tailLayout} style={{ width: "50%", margin: "auto" }}>
           <Button block type="primary" htmlType="submit">
             Create
           </Button>
