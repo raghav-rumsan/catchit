@@ -76,6 +76,7 @@ export const getUser = (payload) => async (dispatch) => {
   dispatch(getUserRequest(payload));
   try {
     const response = await userDetailGet();
+    console.log("response", response.data);
     dispatch(getUserSuccess(response.data));
   } catch (err) {
     if (err.response) {

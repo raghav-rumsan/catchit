@@ -41,3 +41,5 @@ export const dailyQuotesCreate = (data) =>
 export const employeesListGet = (query) => {
   return api.get(`api/v1/employees-list?${query}`, query);
 };
+
+export const getEmployeeDetails = (id) => api.get(`api/v1/employee/${id}`);

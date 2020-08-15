@@ -28,7 +28,7 @@ const persistConfig = {
   key: "root",
   storage: AsyncStorage,
   transforms: [SetTransform],
-  blacklist: ["home-profile", "employees-list"],
+  blacklist: ["home-profile"],
 };
 
 const configureStore = () => {

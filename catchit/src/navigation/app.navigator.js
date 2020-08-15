@@ -9,7 +9,6 @@ import { selectToken, selectBaseUrl } from "../redux/global/selectors";
 import { api } from "../api";
 import { getUser } from "../redux/global/actions";
 import { Text } from "react-native";
-import { SuperAdminNavigator } from "./super-admin.navigator";
 
 const Stack = createStackNavigator();
 
@@ -33,10 +32,6 @@ const AppNavigator = (props) => {
     <Stack.Navigator initialRouteName={initialRouteName} headerMode="none">
       <Stack.Screen name={AppRoute.AUTH} component={AuthNavigator} />
       <Stack.Screen name={AppRoute.HOME} component={HomeNavigator} />
-      {/* <Stack.Screen
-        name={AppRoute.SUPER_ADMIN}
-        component={SuperAdminNavigator}
-      /> */}
     </Stack.Navigator>
   );
 };

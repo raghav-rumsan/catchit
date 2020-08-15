@@ -19,7 +19,6 @@ const HomeTabs = ({ navigation, state }) => {
       <BottomNavigationTab icon={PersonIcon} />
       <BottomNavigationTab icon={RulesIcon} />
       <BottomNavigationTab icon={NotificationsIcon} />
-      <BottomNavigationTab icon={SuperAdminIcon} />
     </BottomNavigation>
   );
 };

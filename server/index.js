@@ -32,9 +32,12 @@ app.use(bodyParser.json());
 require("./routes/userRoutes/register")(app);
 require("./routes/userRoutes/login")(app);
 require("./routes/userRoutes/currentUser")(app);
+
 require("./routes/dailyQuotes/createQuotes")(app);
 require("./routes/dailyQuotes/getQuotes")(app);
+
 require("./routes/employeeRoutes/employeeList")(app);
+require("./routes/employeeRoutes/employeeView")(app);
 
 const PORT = process.env.PORT || 5000;
 

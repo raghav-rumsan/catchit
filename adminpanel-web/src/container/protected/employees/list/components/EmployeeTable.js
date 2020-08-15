@@ -148,13 +148,18 @@ const EmployeeTable = ({ loading, empList, paginator, setValue }) => {
       title: "Action",
       render: ({ _id, full_name }) => (
         <Row key={_id}>
-          <Col span={12}>
+          <Col span={7}>
             <DeleteButton title={`details of '${full_name}'`}>
               Delete
             </DeleteButton>
           </Col>
-          <Col span={12}>
+          <Col span={7}>
             <LinkedButton to={`../view/${_id}`}>View</LinkedButton>
+          </Col>
+          <Col span={7}>
+            <LinkedButton type="primary" to={`../task-assign/${_id}`}>
+              Assign a Task
+            </LinkedButton>
           </Col>
         </Row>
       ),
@@ -184,6 +189,7 @@ const EmployeeTable = ({ loading, empList, paginator, setValue }) => {
         loading={loading}
         dataSource={empList}
         pagination={{
+          position: ["topRight"],
           showQuickJumper: true,
           showSizeChanger: true,
           onShowSizeChange: handlePerPage,

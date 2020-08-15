@@ -6,6 +6,7 @@ import PageTitle from "./PageTitle";
 import Navbar from "./Navbar";
 import LinkedButton from "./LinkedButton";
 import DeleteButton from "./DeleteButton";
+import NotSuperAdmin from "./NotSuperAdmin";
 
 export {
   PublicRoute,
@@ -16,4 +17,5 @@ export {
   PageTitle,
   LinkedButton,
   DeleteButton,
+  NotSuperAdmin,
 };

@@ -14,7 +14,7 @@ const List = ({ getEmployeesList, loading, query, ...props }) => {
 
   useEffect(() => {
     getEmployeesList();
-  }, []);
+  }, [query]);
 
   return (
     <div>

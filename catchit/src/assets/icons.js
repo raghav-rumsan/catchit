@@ -12,17 +12,15 @@ const iconStyle = (styles = { style: {} }, Component, name = "") => {
   let newStyle;
   const { style } = styles;
   let fontColor = "";
-  if (style && style["tintColor"]) {
-    fontColor = style["tintColor"];
-    delete style["tintColor"];
-  }
+  // if (style && style["tintColor"]) {
+  //   fontColor = style["tintColor"];
+  //   delete style["tintColor"];
+  // }
   newStyle = {
     ...style,
     color: fontColor,
   };
 
-  console.log("style", style, "name", name, "newStyle", newStyle);
-  console.log('style["tintColor"]', style["tintColor"]);
   return <Component name={name} {...newStyle} />;
 };
 

@@ -7,7 +7,6 @@ import * as mapDispatchToProps from "./actions";
 import { reduxKey, selectLoading, selectMessage } from "./selectors";
 import { createStructuredSelector } from "reselect";
 import reducer from "./reducer";
-// import TitleHeader from "../../components/TitleHeader";
 
 const layout = {
   labelCol: {
@@ -26,7 +25,6 @@ const tailLayout = {
 
 const Login = ({ login, loading, message }) => {
   useInjectReducer({ key: reduxKey, reducer });
-  console.log("message", message);
   const onFinish = async (values) => {
     try {
       const loggedIn = await login(values);
