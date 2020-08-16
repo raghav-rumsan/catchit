@@ -11,14 +11,14 @@ import {
 const iconStyle = (styles = { style: {} }, Component, name = "") => {
   let newStyle;
   const { style } = styles;
-  let fontColor = "";
+  // let fontColor = "black";
   // if (style && style["tintColor"]) {
   //   fontColor = style["tintColor"];
   //   delete style["tintColor"];
   // }
   newStyle = {
     ...style,
-    color: fontColor,
+    // color: fontColor,
   };
 
   return <Component name={name} {...newStyle} />;
@@ -68,4 +68,4 @@ export const RefreshIcon = (style) => iconStyle(style, Icon, "refresh1");
 
 export const BountyIcon = (style) => iconStyle(style, FontAwesome, "money");
 
-export const ClockIcon = (style) => iconStyle(style, Feather, "clockcircleo");
+export const ClockIcon = (style) => iconStyle(style, Icon, "clockcircleo");

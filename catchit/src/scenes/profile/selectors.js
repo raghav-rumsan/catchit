@@ -10,7 +10,17 @@ export const selectDailyQuotes = createSelector(
   (state) => state.quotes
 );
 
+export const selectLoading = createSelector(
+  [selectRoot],
+  (state) => state.loading
+);
+
 export const selectClocked = createSelector(
   [selectRoot],
   (state) => state.clocked
+);
+
+export const selectPickedDate = createSelector(
+  [selectRoot],
+  (state) => state.datePicked
 );

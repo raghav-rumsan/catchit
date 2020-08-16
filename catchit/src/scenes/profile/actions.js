@@ -1,6 +1,11 @@
 import { dailyQuotesGet } from "../../api";
 import * as types from "./types";
 
+export const setValue = (payload) => ({
+  type: types.SET_VALUE,
+  payload,
+});
+
 const getDailyQuotesRequest = (payload) => ({
   type: types.GET_DAILY_QUOTES_REQUEST,
   payload,

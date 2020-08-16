@@ -20,6 +20,7 @@ const { store, persistor } = configureStore();
 
 const App = () => {
   const [theme, setTheme] = useState(baseTheme);
+
   // useEffect(() => {
   //   PushNotification.configure({
   //     // (optional) Called when Token is generated (iOS and Android)

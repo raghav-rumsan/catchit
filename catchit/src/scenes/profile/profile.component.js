@@ -6,10 +6,11 @@ import MainLayout from "../../components/main-layout.component";
 import { RefreshIcon, HomeIcon } from "../../assets/icons";
 import DailyQuotes from "./components/DailyQuotes";
 import BasicUserInfo from "./components/BasicUserInfo";
-import InfoCalendar from "./components/InfoCalendar";
 import AttendanceInfo from "./components/AttendanceInfo";
 import ClockButton from "./components/ClockButton";
 import { ScrollView } from "react-native";
+import Modal from "./components/modal.component";
+import { selectDailyQuotes } from "./selectors";
 
 const ProfileScreen = (props) => {
   const renderRefresh = (props) => (
@@ -20,8 +21,7 @@ const ProfileScreen = (props) => {
       <DailyQuotes />
       <BasicUserInfo />
       <ScrollView>
-        <InfoCalendar />
-
+        <Modal />
         <ClockButton />
         <AttendanceInfo />
       </ScrollView>
@@ -31,6 +31,8 @@ const ProfileScreen = (props) => {
 
 const mapDispatchToProps = {};
 
-const mapStateToProps = createStructuredSelector({});
+const mapStateToProps = createStructuredSelector({
+  quotes: selectDailyQuotes,
+});
 
 export default connect(mapStateToProps)(ProfileScreen);

@@ -4,3 +4,5 @@ export const GET_DAILY_QUOTES_SUCCESS =
   "mobile/home/profile/GET_DAILY_QUOTES_SUCCESS";
 export const GET_DAILY_QUOTES_FAILURE =
   "mobile/home/profile/GET_DAILY_QUOTES_FAILURE";
+
+export const SET_VALUE = "movile/home/profile/SET_VALUE";

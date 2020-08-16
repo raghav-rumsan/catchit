@@ -3,19 +3,19 @@ import { StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { Card, Text } from "@ui-kitten/components";
-import * as mapDispatchToProps from "../actions";
-import { selectDailyQuotes } from "../selectors";
+import { getDailyQuotes } from "../actions";
+import { selectDailyQuotes, selectLoading } from "../selectors";
 
-const DailyQuotes = ({ getDailyQuotes, quotes, ...props }) => {
-  console.log("props", quotes);
-  useEffect(() => {
-    getDailyQuotes();
-  }, []);
+const DailyQuotes = ({ getDailyQuotes, ...props }) => {
+  console.log("props", props);
+  useEffect(async () => {
+    await getDailyQuotes();
+  }, [getDailyQuotes]);
 
   return (
     <Card style={styles.quoteCard}>
       <Text category="h6" style={styles.quoteText}>
-        "{quotes}"
+        "{props.quotes}"
       </Text>
     </Card>
   );
@@ -23,7 +23,12 @@ const DailyQuotes = ({ getDailyQuotes, quotes, ...props }) => {
 
 const mapStateToProps = createStructuredSelector({
   quotes: selectDailyQuotes,
+  loading: selectLoading,
 });
+
+const mapDispatchToProps = {
+  getDailyQuotes,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DailyQuotes);
 
