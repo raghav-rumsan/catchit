@@ -6,6 +6,7 @@ import MainLayout from "../../components/main-layout.component";
 import { RefreshIcon, HomeIcon } from "../../assets/icons";
 import DailyQuotes from "./components/DailyQuotes";
 import BasicUserInfo from "./components/BasicUserInfo";
+import { Card } from "galio-framework";
 import AttendanceInfo from "./components/AttendanceInfo";
 import ClockButton from "./components/ClockButton";
 import { ScrollView } from "react-native";
@@ -21,7 +22,12 @@ const ProfileScreen = (props) => {
       <DailyQuotes />
       <BasicUserInfo />
       <ScrollView>
-        <Modal />
+        <Modal>
+          <Card disabled={true}>
+            <Text>Welcome to UI Kitten 😻</Text>
+            <Button onPress={() => setVisible(false)}>DISMISS</Button>
+          </Card>
+        </Modal>
         <ClockButton />
         <AttendanceInfo />
       </ScrollView>

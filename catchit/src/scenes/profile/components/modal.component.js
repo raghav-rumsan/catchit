@@ -13,17 +13,12 @@ import { selectPickedDate } from "../selectors";
 import * as mapDispatchToProps from "../actions";
 import InfoCalendar from "./InfoCalendar";
 
-const Modal = ({ datePicked, ...props }) => {
+const Modal = ({ datePicked, children, ...props }) => {
   console.log("datePicked", datePicked);
   return (
     <Layout style={styles.container} level="1">
       <InfoCalendar />
-      <UIModal visible={datePicked !== ""}>
-        <Card disabled={true}>
-          <Text>Welcome to UI Kitten 😻</Text>
-          <Button onPress={() => setVisible(false)}>DISMISS</Button>
-        </Card>
-      </UIModal>
+      <UIModal visible={datePicked !== ""}>{children}</UIModal>
     </Layout>
   );
 };
