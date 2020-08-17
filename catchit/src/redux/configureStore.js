@@ -21,14 +21,14 @@ const SetTransform = createTransform(
     return { ...outboundState };
   },
   // define which reducers this transform gets called for.
-  { whitelist: ["global"] }
+  { whitelist: ["global", "profile"] }
 );
 
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
   transforms: [SetTransform],
-  blacklist: ["home-profile"],
+  blacklist: [""],
 };
 
 const configureStore = () => {

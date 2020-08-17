@@ -8,7 +8,7 @@ import { AppRoute } from "./app-routes";
 import { selectToken, selectBaseUrl } from "../redux/global/selectors";
 import { api } from "../api";
 import { getUser } from "../redux/global/actions";
-import { Text } from "react-native";
+import { FullDetails } from "../scenes/full-details";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +32,7 @@ const AppNavigator = (props) => {
     <Stack.Navigator initialRouteName={initialRouteName} headerMode="none">
       <Stack.Screen name={AppRoute.AUTH} component={AuthNavigator} />
       <Stack.Screen name={AppRoute.HOME} component={HomeNavigator} />
+      <Stack.Screen name={AppRoute.FULL_DETAILS} component={FullDetails} />
     </Stack.Navigator>
   );
 };

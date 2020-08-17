@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { INITIAL_STATE } from "./reducer";
 
-export const reduxKey = "home-profile";
+export const reduxKey = "profile";
 
 const selectRoot = (state) => state[reduxKey] || INITIAL_STATE;
 

@@ -10,7 +10,6 @@ export const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) =>
   produce(state, (draft) => {
-    console.log("state", state);
     switch (action.type) {
       case types.SET_VALUE:
         draft[action.payload.key] = action.payload.value;
@@ -25,6 +24,7 @@ const reducer = (state = INITIAL_STATE, action) =>
         break;
       case types.GET_DAILY_QUOTES_FAILURE:
         draft.loading = false;
+
         draft.quotes = INITIAL_STATE.quotes;
         break;
     }

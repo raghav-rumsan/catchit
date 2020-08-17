@@ -7,10 +7,9 @@ import { getDailyQuotes } from "../actions";
 import { selectDailyQuotes, selectLoading } from "../selectors";
 
 const DailyQuotes = ({ getDailyQuotes, ...props }) => {
-  console.log("props", props);
   useEffect(() => {
     getDailyQuotes();
-  }, [getDailyQuotes]);
+  }, []);
 
   return (
     <Card style={styles.quoteCard}>
