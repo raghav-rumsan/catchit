@@ -32,6 +32,7 @@ export const Toolbar = ({
       onBackdropPress={onMenuActionPress}
       anchor={() => (
         <TopNavigationAction
+          style={{ padding: 10 }}
           icon={menuIcon || MoreVerticalIcon}
           onPress={onMenuActionPress}
         />

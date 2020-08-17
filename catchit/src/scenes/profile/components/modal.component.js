@@ -1,12 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import {
-  Button,
-  Card,
-  Layout,
-  Modal as UIModal,
-  Text,
-} from "@ui-kitten/components";
+import { Layout, Modal as UIModal } from "@ui-kitten/components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectPickedDate } from "../selectors";
@@ -18,7 +12,9 @@ const Modal = ({ datePicked, children, ...props }) => {
   return (
     <Layout style={styles.container} level="1">
       <InfoCalendar />
-      <UIModal visible={datePicked !== ""}>{children}</UIModal>
+      <UIModal backdropStyle={styles.modalBackDrop} visible={false}>
+        {children}
+      </UIModal>
     </Layout>
   );
 };
@@ -26,6 +22,12 @@ const Modal = ({ datePicked, children, ...props }) => {
 const styles = StyleSheet.create({
   container: {
     minHeight: 192,
+  },
+  modalBackDrop: {
+    padding: 20,
+    backgroundColor: 20,
+    fontSize: 12,
+    opacity: 1,
   },
 });
 

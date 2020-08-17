@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { Button, Text, ListItem } from "@ui-kitten/components";
 import MainLayout from "../../components/main-layout.component";
 import { RefreshIcon, HomeIcon } from "../../assets/icons";
 import DailyQuotes from "./components/DailyQuotes";
 import BasicUserInfo from "./components/BasicUserInfo";
-import { Card } from "galio-framework";
+import { Card, Button } from "galio-framework";
 import AttendanceInfo from "./components/AttendanceInfo";
 import ClockButton from "./components/ClockButton";
 import { ScrollView } from "react-native";
@@ -23,9 +21,10 @@ const ProfileScreen = (props) => {
       <BasicUserInfo />
       <ScrollView>
         <Modal>
-          <Card disabled={true}>
-            <Text>Welcome to UI Kitten 😻</Text>
-            <Button onPress={() => setVisible(false)}>DISMISS</Button>
+          <Card>
+            <Button>Take a Leave</Button>
+            <Button>Ask For a Meeting</Button>
+            <Button>Ask For a Team</Button>
           </Card>
         </Modal>
         <ClockButton />
@@ -35,10 +34,4 @@ const ProfileScreen = (props) => {
   );
 };
 
-const mapDispatchToProps = {};
-
-const mapStateToProps = createStructuredSelector({
-  quotes: selectDailyQuotes,
-});
-
-export default connect(mapStateToProps)(ProfileScreen);
+export default connect(null, null)(ProfileScreen);

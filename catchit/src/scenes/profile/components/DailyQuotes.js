@@ -8,8 +8,8 @@ import { selectDailyQuotes, selectLoading } from "../selectors";
 
 const DailyQuotes = ({ getDailyQuotes, ...props }) => {
   console.log("props", props);
-  useEffect(async () => {
-    await getDailyQuotes();
+  useEffect(() => {
+    getDailyQuotes();
   }, [getDailyQuotes]);
 
   return (
