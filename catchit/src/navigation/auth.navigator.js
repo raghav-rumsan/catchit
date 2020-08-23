@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { AppRoute } from "./app-routes";
-import { SignInScreen } from "../scenes/auth";
+import { SignInScreen } from "../screens/auth";
 
 const Stack = createStackNavigator();
 

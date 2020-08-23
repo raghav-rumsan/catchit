@@ -1,71 +1,36 @@
 import React from "react";
-import {
-  AntDesign as Icon,
-  Entypo,
-  FontAwesome,
-  Feather,
-  FontAwesome5,
-  Ionicons,
-} from "@expo/vector-icons";
+import { Icon } from "@ui-kitten/components";
 
-const iconStyle = (styles = { style: {} }, Component, name = "") => {
-  let newStyle;
-  const { style } = styles;
-  // let fontColor = "black";
-  // if (style && style["tintColor"]) {
-  //   fontColor = style["tintColor"];
-  //   delete style["tintColor"];
-  // }
-  newStyle = {
-    ...style,
-    // color: fontColor,
-  };
+export const BackIcon = (style) => <Icon {...style} name="arrow-back" />;
 
-  return <Component name={name} {...newStyle} />;
-};
+export const LayoutIcon = (style) => <Icon {...style} name="layout-outline" />;
 
-export const BackIcon = (style) => iconStyle(style, Ionicons, "ios-arrow-back");
+export const PersonIcon = (style) => <Icon {...style} name="person-outline" />;
 
-export const LayoutIcon = (style) => iconStyle(style, Icon, "layout-outline");
+export const MoreVerticalIcon = (style) => (
+  <Icon {...style} name="more-vertical" />
+);
 
-// export const DeleteIcon = (state) => <Icon {...style} name="delete" />;
+export const LogoutIcon = (style) => <Icon {...style} name="log-out-outline" />;
 
-export const PersonIcon = (style) => iconStyle(style, Icon, "user");
+export const InfoIcon = (style) => <Icon {...style} name="info-outline" />;
 
-export const MoreVerticalIcon = (style) =>
-  iconStyle(style, Entypo, "dots-three-vertical");
+export const AlertTriangleIcon = (style) => (
+  <Icon {...style} name="alert-triangle-outline" />
+);
 
-export const LogoutIcon = (style) => iconStyle(style, Icon, "logout");
+export const EyeIcon = (style) => <Icon {...style} name="eye-outline" />;
 
-export const InfoIcon = (style) => iconStyle(style, Icon, "infocircle");
+export const EyeOffIcon = (style) => <Icon {...style} name="eye-off-outline" />;
 
-export const AlertTriangleIcon = (style) =>
-  iconStyle(style, Feather, "alert-triangle");
+export const MenuIcon = (style) => <Icon {...style} name="menu-outline" />;
 
-export const EyeIcon = (style) => iconStyle(style, Icon, "eyeo");
+export const HomeIcon = (style) => <Icon {...style} name="home-outline" />;
 
-export const EyeOffIcon = (style) => iconStyle(style, Feather, "eye-off`");
+export const DoneAllIcon = (style) => (
+  <Icon {...style} name="done-all-outline" />
+);
 
-export const MenuIcon = (style) => iconStyle(style, Icon, "menuunfold");
+export const GridIcon = (style) => <Icon {...style} name="grid-outline" />;
 
-export const HomeIcon = (style) => iconStyle(style, Icon, "home");
-
-export const RulesIcon = (style) => iconStyle(style, FontAwesome5, "th-list");
-
-export const NotificationsIcon = (style) => iconStyle(style, Feather, "bell");
-
-export const SuperAdminIcon = (style) =>
-  iconStyle(style, FontAwesome5, "user-astronaut");
-
-export const DoneAllIcon = (style) =>
-  iconStyle(style, Icon, "done-all-outline");
-
-export const GridIcon = (style) => iconStyle(style, Icon, "grid-outline");
-
-export const SearchIcon = (style) => iconStyle(style, Icon, "search-outline");
-
-export const RefreshIcon = (style) => iconStyle(style, Icon, "refresh1");
-
-export const BountyIcon = (style) => iconStyle(style, FontAwesome, "money");
-
-export const ClockIcon = (style) => iconStyle(style, Icon, "clockcircleo");
+export const SearchIcon = (style) => <Icon {...style} name="search-outline" />;

@@ -8,12 +8,13 @@ import { AppRoute } from "./app-routes";
 import { selectToken, selectBaseUrl } from "../redux/global/selectors";
 import { api } from "../api";
 import { getUser } from "../redux/global/actions";
-import { FullDetails } from "../scenes/full-details";
+import { FullDetails } from "../screens/full-details";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = (props) => {
   const { baseUrl, token, getUser } = props;
+
   useEffect(() => {
     if (baseUrl) {
       api.defaults.baseURL = `${
@@ -37,12 +38,4 @@ const AppNavigator = (props) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  token: selectToken,
-});
-
-const mapDispatchToProps = {
-  getUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppNavigator);
+export default connect()(AppNavigator);

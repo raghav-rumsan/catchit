@@ -36,6 +36,10 @@ const configureStore = () => {
     (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
   const middlewares = [ReduxThunk];
+  if (__DEV__) {
+    const createDebugger = require("redux-flipper").default;
+    middlewares.push(createDebugger());
+  }
   const enhancers = [applyMiddleware(...middlewares)];
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = createStore(persistedReducer, composeEnhancers(...enhancers));

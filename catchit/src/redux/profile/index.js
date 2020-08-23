@@ -1,3 +1,3 @@
-import reducer from "../../scenes/profile/reducer";
+import reducer from "../../screens/profile/reducer";
 
 export default reducer;

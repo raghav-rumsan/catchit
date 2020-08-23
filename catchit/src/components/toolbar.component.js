@@ -8,13 +8,14 @@ import {
 } from "@ui-kitten/components";
 import { BackIcon, MoreVerticalIcon } from "../assets/icons";
 
-export const Toolbar = ({
-  menu,
-  backIcon,
-  menuIcon,
-  onBackPress,
-  ...topNavigationProps
-}) => {
+export const Toolbar = (props) => {
+  const {
+    menu,
+    backIcon,
+    menuIcon,
+    onBackPress,
+    ...topNavigationProps
+  } = props;
   const [menuVisible, setMenuVisible] = React.useState(false);
   const theme = useTheme();
   const onMenuSelect = () => {
@@ -32,7 +33,6 @@ export const Toolbar = ({
       onBackdropPress={onMenuActionPress}
       anchor={() => (
         <TopNavigationAction
-          style={{ padding: 10 }}
           icon={menuIcon || MoreVerticalIcon}
           onPress={onMenuActionPress}
         />
@@ -47,7 +47,7 @@ export const Toolbar = ({
   );
 
   return (
-    <View style={[{ backgroundColor: theme["color-primary-white"] }]}>
+    <View style={[{ backgroundColor: theme["color-primary-100"] }]}>
       <TopNavigation
         {...topNavigationProps}
         alignment="center"

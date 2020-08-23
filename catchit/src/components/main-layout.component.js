@@ -2,22 +2,21 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {
-  Divider,
-  Layout,
-  MenuItem,
-  Text,
-  useTheme,
-} from "@ui-kitten/components";
+import { Text } from "galio-framework";
+import { Divider, Layout, MenuItem } from "@ui-kitten/components";
 import { Toolbar } from "./toolbar.component";
-import { MenuIcon, LogoutIcon, HomeIcon, BountyIcon } from "../assets/icons";
+import { MenuIcon, InfoIcon, LogoutIcon, BackIcon } from "../assets/icons";
 import { AppRoute } from "../navigation/app-routes";
 import { SafeAreaLayout, SaveAreaInset } from "./safe-area-layout.component";
 import { logoutUser } from "../redux/global/actions";
 
-const MainLayout = (props) => {
-  const theme = useTheme();
-
+const MainLayout = ({
+  title,
+  navigation,
+  drawer = false,
+  children,
+  ...props
+}) => {
   const handleUserLogout = async () => {
     try {
       await props.logoutUser();
@@ -29,15 +28,16 @@ const MainLayout = (props) => {
 
   const menu = (callback = () => null) => (
     <>
-      <MenuItem
-        accessoryLeft={BountyIcon}
-        title="Bounties"
-        onPress={() => {
-          callback();
-          props.navigation.navigate(AppRoute.BOUNTIES);
-        }}
-      />
-      {/* <MenuItem
+      <>
+        <MenuItem
+          // accessoryLeft={BountyIcon}
+          title="Bounties"
+          onPress={() => {
+            callback();
+            props.navigation.navigate(AppRoute.BOUNTIES);
+          }}
+        />
+        {/* <MenuItem
         accessoryLeft={InfoIcon}
         title="About"
         onPress={() => {
@@ -45,11 +45,12 @@ const MainLayout = (props) => {
           // props.navigation.navigate(AppRoute.ABOUT);
         }}
       /> */}
-      <MenuItem
-        accessoryLeft={LogoutIcon}
-        title="Log Out"
-        onPress={handleUserLogout}
-      />
+        <MenuItem
+          accessoryLeft={LogoutIcon}
+          title="Log Out"
+          onPress={handleUserLogout}
+        />
+      </>
     </>
   );
   // const onMenuItemSelect = index => {
@@ -68,21 +69,14 @@ const MainLayout = (props) => {
   return (
     <SafeAreaLayout style={styles.safeArea} insets={SaveAreaInset.TOP}>
       <Toolbar
-        title={
-          <Text
-            category="h6"
-            status="control"
-            style={{ color: theme["color-primary-white"] }}
-          >
-            {props.title}
-          </Text>
-        }
-        backIcon={MenuIcon}
-        onBackPress={props.navigation.toggleDrawer}
+        title={<Text h5>{title}</Text>}
+        backIcon={drawer ? MenuIcon : BackIcon}
+        drawer={drawer}
+        onBackPress={drawer ? navigation.toggleDrawer : navigation.goBack()}
         menu={menu}
       />
       <Divider />
-      <Layout style={styles.container}>{props.children}</Layout>
+      <Layout style={styles.container}>{children}</Layout>
     </SafeAreaLayout>
   );
 };
@@ -101,8 +95,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 5,
-    // justifyContent: "center",
-    // alignItems: "center",
+    padding: 4,
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 });

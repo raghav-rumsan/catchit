@@ -1,14 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeTabs } from "../scenes/home";
-import { ProfileScreen } from "../scenes/profile";
-import { AppRoute } from "./app-routes";
+import { HomeTabs } from "../screens/home";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+
+import { AppRoute } from "./app-routes";
 import { selectUser } from "../redux/global/selectors";
 import { HomeIcon } from "../assets/icons";
-import { Rules } from "../scenes/rules";
-import { NotificationsScreen } from "../scenes/notifications";
+import { Rules } from "../screens/rules";
+import { NotificationsScreen } from "../screens/notifications";
+import { ProfileScreen } from "../screens/profile";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
